@@ -17,7 +17,7 @@ const CultureSection = () => {
     },
     {
       icon: <Star className="h-10 w-10" />,
-      title: "Supercommunicators",
+      title: "Super Communicators",
       description: "Building bridges between technical complexity and human understanding to create lasting partnerships.",
       principle: "Connect with purpose, communicate with impact"
     },

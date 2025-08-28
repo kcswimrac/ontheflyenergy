@@ -156,16 +156,17 @@ const CTASection = () => {
                 Get monthly updates on our technology breakthroughs, new
                 installations, and industry insights.
               </p>
-              <div className="flex gap-4">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-grow bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-midnight-black placeholder-gray-400 focus:border-energy-green focus:outline-none transition-colors duration-300"
-                />
-                <button className="bg-energy-green hover:bg-green-500 text-white font-montserrat font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
-                  Subscribe
-                </button>
-              </div>
+              <div className="flex flex-col sm:flex-row gap-4 w-full">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-grow bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-midnight-black placeholder-gray-400 focus:border-energy-green focus:outline-none transition-colors duration-300"
+              />
+              <button className="bg-energy-green hover:bg-green-500 text-white font-montserrat font-semibold px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105">
+                Subscribe
+              </button>
+            </div>
+
             </div>
 
             <div className="space-y-6">
