@@ -5,9 +5,9 @@ const MetricsSection = () => {
   const metrics = [
     {
       icon: <Zap className="h-8 w-8" />,
-      number: "500+",
+      number: "2",
       label: "Units in Operation",
-      description: "Deployed across critical infrastructure"
+      description: "Deployed at Pilot sites"
     },
     {
       icon: <Clock className="h-8 w-8" />,
@@ -17,14 +17,14 @@ const MetricsSection = () => {
     },
     {
       icon: <TrendingUp className="h-8 w-8" />,
-      number: "50MW",
+      number: "500kW",
       label: "Power Delivered",
       description: "Cumulative capacity installed"
     },
     {
       icon: <Leaf className="h-8 w-8" />,
-      number: "10K+",
-      label: "Tons CO₂ Saved",
+      number: "300+",
+      label: "Pounds of CO₂ Saved",
       description: "Through efficient energy storage"
     }
   ];

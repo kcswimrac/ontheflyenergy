@@ -1,27 +1,37 @@
 import React from 'react';
-import { Target, Zap, Clock, Recycle } from 'lucide-react';
+import { Target, Zap, Clock, Recycle, DollarSign, Sun } from 'lucide-react';
 
 const MissionSection = () => {
   const values = [
     {
       icon: <Clock className="h-6 w-6" />,
-      title: "No cycle fade — decades of resilience",
+      title: "No cycle fade, decades of resilience",
       description: "Built to last 20+ years without performance degradation"
     },
     {
       icon: <Zap className="h-6 w-6" />,
-      title: "Instant response (<50ms UPS-grade)",
+      title: "Instant response (<25ms UPS-grade)",
       description: "Millisecond-level response for critical power applications"
     },
     {
       icon: <Recycle className="h-6 w-6" />,
-      title: "100% recyclable, built in America",
+      title: "Recyclable, built in America",
       description: "Sustainable manufacturing with domestic supply chain"
     },
     {
       icon: <Target className="h-6 w-6" />,
       title: "Grid-forming & inertia support",
       description: "Advanced grid stabilization and power quality enhancement"
+    },
+    {
+      icon: <DollarSign className="h-6 w-6" />,
+      title: "Cut demand charges, boost ROI",
+      description: "Reduce Expensive peak demand cost by shifting loads with energy storage, transforming grid strain into bottom line-saving"
+    },
+    {
+      icon: <Sun className="h-6 w-6" />,
+      title: "Stabilize  solar + wind power",
+      description: "Absorb fluctuations from intermittent renewable and deliver clean, steady output without costly curtailment"
     }
   ];
 

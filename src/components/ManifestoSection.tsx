@@ -21,24 +21,31 @@ const ManifestoSection = () => {
             </h2>
             
             <blockquote className="font-montserrat font-bold text-3xl md:text-4xl lg:text-5xl text-industrial-white leading-tight mb-8">
-              "We are not here to be trendy.
+              "We are not here to be trendy."
               <br />
-              <span className="text-energy-green">We are here to be trusted.</span>"
+             
+            </blockquote>
+             <blockquote className="font-montserrat font-bold text-lg md:text-lg lg:text-xl text-industrial-white leading-tight mb-8">
+              
+              <span className="text-energy-green">We are here to be trusted — built in America, built to outlast.</span>
             </blockquote>
             
-            <div className="w-24 h-1 bg-energy-green mx-auto mb-8"></div>
+            <div className="w-32 h-1 bg-energy-green mx-auto  mb-8"></div>
             
             <p className="font-open-sans text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              In a world of flashy promises and marketing hype, we choose substance over style. 
-              Our flywheel technology isn't just another energy storage solution—it's a 
+              In a world full of hype and short-term fixes, we choose substances over slogans.
+              Our flywheel technology isn't just another storage product, 
               <span className="text-energy-green font-semibold"> decades-long commitment </span> 
-              to the people and organizations that depend on us.
-            </p>
+              to resilience, reliability, and American manufacturing.
+
+
             
             <p className="font-open-sans text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mt-6">
-              When the lights go out, when the grid fails, when everything else stops working—
+                           We build here, with domestic supply chains, because true energy independence starts at home.
+              When the grid fails, when batteries fade, when everything else stops working,
+           
               <span className="text-energy-green font-semibold"> we're still spinning. </span>
-              That's not a promise. That's physics.
+            </p>
             </p>
           </div>
         </div>

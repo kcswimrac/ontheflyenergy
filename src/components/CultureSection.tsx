@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Target, MessageCircle, Star } from 'lucide-react';
+import { Users, Target, MessageCircle, Star, Leaf, Zap } from 'lucide-react';
 
 const CultureSection = () => {
   const values = [
@@ -26,7 +26,20 @@ const CultureSection = () => {
       title: "Employee Ownership",
       description: "Every team member has equity in our success, aligning individual growth with company mission.",
       principle: "Your success is our success"
+    },
+    {
+      icon: <Leaf className="h-10 w-10" />,
+      title: "American-Built Commitment",
+      description: "We believe in manufacturing here, with domestic supply chains and long-term resilience. Energy independence starts with building it ourselves.",
+      principle: "Trust is domestic"
+    },
+    {
+      icon: <Zap className="h-10 w-10" />,
+      title: "Automate Yourself Out of a Job",
+      description: "Our goal isn't busywork- its building systems that outlive us. From factory automation to energy tech,  we design to free people up for higher-value work",
+      principle: "Built smarter, work freer"
     }
+
   ];
 
   return (
@@ -37,16 +50,16 @@ const CultureSection = () => {
             Open-Book Culture
           </h2>
           <p className="font-open-sans text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-            Transparency isn't just a value—it's how we operate. From financial metrics 
-            to strategic decisions, we believe in radical openness and shared ownership.
+            Transparency isn't just a value—it's how we build. From Performance metrics 
+            to strategic choices, we believe in radical openness, shared responsibility, and building trust that last decades.
           </p>
           <div className="bg-energy-green/20 border border-energy-green/40 rounded-xl p-6 max-w-4xl mx-auto">
             <p className="font-montserrat font-semibold text-energy-green text-lg">
               "A company is only as strong as its people, and people perform best when they 
-              understand the why behind every decision."
+              understand the why behind the decision."
             </p>
             <p className="font-open-sans text-gray-300 text-sm mt-2">
-              — Leadership Philosophy
+              — Kris Canete Founder & CEO
             </p>
           </div>
         </div>

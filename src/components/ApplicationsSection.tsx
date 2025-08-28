@@ -19,13 +19,13 @@ const ApplicationsSection = () => {
       icon: <Zap className="h-12 w-12" />,
       title: "Utilities & Microgrids",
       description: "Grid stabilization, frequency regulation, and renewable energy integration for reliable power delivery.",
-      benefits: ["Grid forming capability", "Frequency regulation", "Renewable integration", "Peak demand management"]
+      benefits: [ "Energy storage", "Grid forming capability", "Frequency regulation", "Renewable integration", "Peak demand management"]
     },
     {
       icon: <Shield className="h-12 w-12" />,
       title: "Defense & Healthcare",
       description: "Mission-critical backup power for life-safety systems and national security applications.",
-      benefits: ["Life-safety compliance", "Security clearance ready", "Emergency preparedness", "Regulatory compliance"]
+      benefits: [ "Emergency preparedness", "Regulatory compliance"]
     }
   ];
 

@@ -5,23 +5,23 @@ const ProductsSection = () => {
   const products = [
     {
       name: "Rotor-Seed™",
-      power: "5kW Modular",
+      power: "10kW Modular",
       icon: <Cpu className="h-12 w-12" />,
       description: "Compact, scalable units perfect for small-scale applications and distributed installations.",
       features: ["Plug-and-play design", "Stackable architecture", "Remote monitoring", "20+ year lifespan"],
-      applications: ["Small data centers", "Retail locations", "Remote facilities", "Backup power"]
+      applications: ["Small data centers", "Retail locations", "Remote facilities", "Backup power", "Voltage & phase conversion"]
     },
     {
-      name: "RotorVault™",
-      power: "50–100kW Industrial",
+      name: "Rotor-Pod™",
+      power: "20kW–1mW Industrial",
       icon: <Factory className="h-12 w-12" />,
       description: "Heavy-duty industrial systems designed for demanding commercial and industrial applications.",
       features: ["Industrial-grade housing", "Advanced control systems", "Grid-forming capability", "Maintenance-free operation"],
       applications: ["Manufacturing facilities", "Large data centers", "Hospitals", "Critical infrastructure"]
     },
     {
-      name: "MW Systems",
-      power: "Scalable to MW",
+      name: "Rotor-Farm™",
+      power: "Scalable from 1mW+",
       icon: <Zap className="h-12 w-12" />,
       description: "Utility-scale deployments for grid stabilization and large-scale energy storage projects.",
       features: ["Modular scaling", "Grid integration", "Advanced analytics", "Utility-grade reliability"],
@@ -30,7 +30,7 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="py-24 bg-midnight-black">
+    <section id="products" className="py-24 bg-midnight-black">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-industrial-white mb-6">
