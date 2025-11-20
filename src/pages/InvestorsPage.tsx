@@ -2,52 +2,42 @@ import React, { useState } from 'react';
 import { TrendingUp, Target, CheckCircle2, Map, DollarSign, Send } from 'lucide-react';
 
 const InvestorsPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    firm: '',
-    stage: '',
-    checkSize: '',
-    message: ''
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [result, setResult] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsSubmitting(true);
+    setResult('Sending...');
+
+    const formData = new FormData(event.currentTarget);
+    formData.append('access_key', '71410425-89f6-4094-b387-361c001bdad0');
+    formData.append('subject', 'Investor Inquiry from On The Fly Energy Website');
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: '71410425-89f6-4094-b387-361c001bdad0',
-          subject: 'Investor Inquiry from On The Fly Energy Website',
-          from_name: formData.name,
-          ...formData
-        }),
+        body: formData
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (data.success) {
+        setResult('Form Submitted Successfully');
         setSubmitStatus('success');
-        setFormData({ name: '', firm: '', stage: '', checkSize: '', message: '' });
+        event.currentTarget.reset();
       } else {
+        console.log('Error', data);
+        setResult(data.message);
         setSubmitStatus('error');
       }
     } catch (error) {
       setSubmitStatus('error');
+      setResult('An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
   };
 
   return (
@@ -275,8 +265,6 @@ const InvestorsPage: React.FC = () => {
                   id="name"
                   name="name"
                   required
-                  value={formData.name}
-                  onChange={handleChange}
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                 />
               </div>
@@ -290,8 +278,6 @@ const InvestorsPage: React.FC = () => {
                   id="firm"
                   name="firm"
                   required
-                  value={formData.firm}
-                  onChange={handleChange}
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                 />
               </div>
@@ -305,8 +291,6 @@ const InvestorsPage: React.FC = () => {
                     id="stage"
                     name="stage"
                     required
-                    value={formData.stage}
-                    onChange={handleChange}
                     className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                   >
                     <option value="">Select stage</option>
@@ -327,8 +311,6 @@ const InvestorsPage: React.FC = () => {
                     id="checkSize"
                     name="checkSize"
                     placeholder="e.g., $500K-$2M"
-                    value={formData.checkSize}
-                    onChange={handleChange}
                     className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                   />
                 </div>
@@ -342,8 +324,6 @@ const InvestorsPage: React.FC = () => {
                   id="message"
                   name="message"
                   rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
                   placeholder="Tell us about your interest and what you'd like to discuss..."
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors resize-none"
                 />

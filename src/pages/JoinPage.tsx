@@ -1,224 +1,311 @@
 import React, { useState } from 'react';
-import { Zap, Cpu, Cog, Factory, Settings, Send, Users } from 'lucide-react';
+import { Code, Wrench, Zap, AlertCircle, Send } from 'lucide-react';
 
 const JoinPage: React.FC = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    background: '',
-    interest: '',
-    message: ''
-  });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [result, setResult] = useState('');
 
-  const disciplines = [
-    {
-      icon: <Zap className="h-10 w-10" />,
-      title: "Power Electronics & Inverter Design",
-      description: "Grid-tied inverters, high-frequency switching, power conversion at kW to MW scale"
-    },
-    {
-      icon: <Cpu className="h-10 w-10" />,
-      title: "Motor Control & Embedded Firmware",
-      description: "Real-time control systems, motor drive algorithms, embedded C/C++ on industrial hardware"
-    },
-    {
-      icon: <Cog className="h-10 w-10" />,
-      title: "Mechanical & Rotor Design",
-      description: "High-speed rotating machinery, FEA/CFD, precision bearings and dynamics, structural integrity"
-    },
-    {
-      icon: <Factory className="h-10 w-10" />,
-      title: "Composite Manufacturing & Testing",
-      description: "Carbon fiber layup, autoclave processing, composite tooling, mechanical testing and validation"
-    },
-    {
-      icon: <Settings className="h-10 w-10" />,
-      title: "Controls, SCADA & Manufacturing Systems",
-      description: "Factory automation, SCADA integration, production monitoring, data acquisition at scale"
-    },
-    {
-      icon: <Users className="h-10 w-10" />,
-      title: "Systems Integration & Field Engineering",
-      description: "Site commissioning, customer deployments, grid interconnection, troubleshooting in the field"
-    }
-  ];
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     setIsSubmitting(true);
+    setResult('Sending...');
+
+    const formData = new FormData(event.currentTarget);
+    formData.append('access_key', '71410425-89f6-4094-b387-361c001bdad0');
+    formData.append('subject', 'Talent Application from On The Fly Energy Website');
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: '71410425-89f6-4094-b387-361c001bdad0',
-          subject: 'Talent Inquiry from On The Fly Energy Website',
-          from_name: formData.name,
-          ...formData
-        }),
+        body: formData
       });
 
-      if (response.ok) {
+      const data = await response.json();
+
+      if (data.success) {
+        setResult('Application Submitted Successfully');
         setSubmitStatus('success');
-        setFormData({ name: '', email: '', background: '', interest: '', message: '' });
+        event.currentTarget.reset();
       } else {
+        console.log('Error', data);
+        setResult(data.message);
         setSubmitStatus('error');
       }
     } catch (error) {
       setSubmitStatus('error');
+      setResult('An error occurred. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
   };
 
   return (
     <div className="min-h-screen bg-midnight-black">
       {/* Hero */}
       <section className="relative py-24 bg-gradient-to-b from-steel-blue to-midnight-black overflow-hidden">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 text-center">
-          <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-industrial-white mb-6">
-            Join the Mission
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-industrial-white mb-8 leading-tight">
+            We hire people who build first and talk second.
           </h1>
-          <p className="font-open-sans text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            We are assembling a founding team to build the world's most responsive energy storage platform
+          <p className="font-open-sans text-2xl text-gray-300 max-w-4xl leading-relaxed">
+            No resumes. No buzzwords. No passengers.
           </p>
-          <div className="w-24 h-1 bg-energy-green mx-auto mt-8"></div>
+          <div className="w-24 h-1 bg-energy-green mt-8"></div>
         </div>
       </section>
 
-      {/* Intro Section */}
+      {/* Philosophy */}
       <section className="py-20 bg-midnight-black">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-8">
+            Our Hiring Philosophy
+          </h2>
+
           <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
             <p>
-              This is an opportunity to build something that matters. Not another SaaS app or
-              consumer gadget—real hardware solving a real, systemic problem. The grid is breaking
-              under AI and electrification. We are building the kinetic layer to fix it.
+              We do not screen candidates using resumes. We screen candidates exclusively on
+              <strong className="text-industrial-white"> evidence of real work</strong>: CAD models,
+              code repositories, hardware prototypes, simulations, experiments, test rigs, and
+              project writeups.
             </p>
             <p>
-              We need engineers and builders who thrive on hard problems. People who want to work
-              at the intersection of mechanical engineering, power electronics, controls, and
-              manufacturing. People who care about building things that last decades and operate
-              in critical infrastructure.
+              Proof of work is the only currency that matters here. Resumes are collected later in
+              the process for administrative and record-keeping purposes, not as a filter.
             </p>
             <p>
-              <strong className="text-industrial-white">This is early stage.</strong> You will have
-              enormous impact and autonomy. You will help define the architecture, make critical
-              technical decisions, and shape the culture of the company. If you want a stable 9-to-5
-              job at a mature company, this is not it. If you want to build something from the ground
-              up, keep reading.
+              If you cannot point to something you built—something that exists in the physical or
+              digital world—we have nothing to discuss.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Disciplines Section */}
+      {/* What We Look For */}
       <section className="py-20 bg-steel-blue/10">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="font-montserrat font-bold text-4xl text-industrial-white mb-4 text-center">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-12 text-center">
+            What Proof of Work Looks Like
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-midnight-black/40 border border-energy-green/20 rounded-lg p-8">
+              <div className="mb-6 text-energy-green">
+                <Code className="h-10 w-10" />
+              </div>
+              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-4">
+                Digital Artifacts
+              </h3>
+              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
+                <li>GitHub or GitLab repositories</li>
+                <li>Control algorithms and firmware</li>
+                <li>Simulation models (FEA, CFD, SPICE)</li>
+                <li>CAD assemblies and drawings</li>
+                <li>PCB layouts and schematics</li>
+              </ul>
+            </div>
+
+            <div className="bg-midnight-black/40 border border-energy-green/20 rounded-lg p-8">
+              <div className="mb-6 text-energy-green">
+                <Wrench className="h-10 w-10" />
+              </div>
+              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-4">
+                Physical Builds
+              </h3>
+              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
+                <li>Mechanical prototypes and test rigs</li>
+                <li>Custom fabricated parts</li>
+                <li>Power electronics hardware</li>
+                <li>Manufacturing fixtures and tooling</li>
+                <li>Experimental setups with data</li>
+              </ul>
+            </div>
+
+            <div className="bg-midnight-black/40 border border-energy-green/20 rounded-lg p-8">
+              <div className="mb-6 text-energy-green">
+                <Zap className="h-10 w-10" />
+              </div>
+              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-4">
+                Technical Writeups
+              </h3>
+              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
+                <li>Portfolio sites with build logs</li>
+                <li>Technical blog posts with depth</li>
+                <li>Experiment documentation</li>
+                <li>Video walkthroughs of projects</li>
+                <li>Analysis and failure reports</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The Environment */}
+      <section className="py-20 bg-midnight-black">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-8">
+            The Environment
+          </h2>
+
+          <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
+            <p>
+              Working here means rapidly turning ideas into evidence. You will operate with autonomy,
+              interface directly with machines and materials, and deliver physical or digital proof.
+            </p>
+            <p>
+              The culture is built for people who build first and talk second. High-agency engineers
+              who move from concept to prototype in weeks, not quarters. People who debug in hardware,
+              not PowerPoint.
+            </p>
+            <p>
+              No spectators. No passengers. If you need consensus to start, you will not survive here.
+            </p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-steel-blue/20 border-l-4 border-energy-green rounded-lg p-6">
+              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3">
+                What You Will Do
+              </h3>
+              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
+                <li>Design and build mechanical systems</li>
+                <li>Write control firmware and algorithms</li>
+                <li>Develop power electronics hardware</li>
+                <li>Run experiments and analyze data</li>
+                <li>Commission systems at customer sites</li>
+                <li>Solve problems nobody has solved before</li>
+              </ul>
+            </div>
+
+            <div className="bg-steel-blue/20 border-l-4 border-energy-green rounded-lg p-6">
+              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3">
+                What You Will Not Do
+              </h3>
+              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
+                <li>Attend planning meetings with no output</li>
+                <li>Write code that never touches hardware</li>
+                <li>Design systems you will never build</li>
+                <li>Wait for permission to start</li>
+                <li>Ship decks instead of prototypes</li>
+                <li>Spectate while others build</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Matters to Investors */}
+      <section className="py-20 bg-gradient-to-b from-steel-blue/10 to-midnight-black">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="bg-energy-green/10 border border-energy-green/30 rounded-lg p-8">
+            <div className="flex items-start gap-6">
+              <div className="flex-shrink-0 text-energy-green">
+                <AlertCircle className="h-10 w-10" />
+              </div>
+              <div>
+                <h2 className="font-montserrat font-bold text-2xl text-industrial-white mb-4">
+                  Why Investors Care About This
+                </h2>
+                <p className="font-open-sans text-lg text-gray-300 leading-relaxed">
+                  This proof-of-work hiring model is a core competitive advantage. It produces
+                  founder-caliber builders who move from concept to prototype in weeks, not months.
+                  While incumbents are stuck in design reviews, we ship working hardware. The talent
+                  density this creates is what allows us to outpace companies 10x our size. Speed is
+                  not a culture value—it is a structural outcome of hiring people who build without
+                  being asked.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Disciplines */}
+      <section className="py-20 bg-midnight-black">
+        <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
+          <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-4 text-center">
             Disciplines We Need
           </h2>
           <p className="font-open-sans text-lg text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-            These are likely future roles as we scale the team. Not all are open now, but we want
-            to hear from people with expertise in these areas.
+            Not all roles are open now. We hire when we find exceptional people, not when we have
+            headcount budget.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {disciplines.map((discipline, index) => (
-              <div
-                key={index}
-                className="bg-midnight-black/40 border border-energy-green/20 rounded-lg p-6 hover:border-energy-green/50 transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.05}s` }}
-              >
-                <div className="flex flex-col items-center text-center">
-                  <div className="mb-6 text-energy-green">
-                    {discipline.icon}
-                  </div>
-                  <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-4">
-                    {discipline.title}
-                  </h3>
-                  <p className="font-open-sans text-gray-300 text-sm leading-relaxed">
-                    {discipline.description}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What We Value */}
-      <section className="py-20 bg-midnight-black">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="font-montserrat font-bold text-4xl text-industrial-white mb-12 text-center">
-            What We Value
-          </h2>
-
-          <div className="space-y-6">
-            <div className="bg-steel-blue/20 border-l-4 border-energy-green rounded-lg p-6">
-              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3">
-                Builders Over Talkers
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+              <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
+                Power Electronics & Inverter Design
               </h3>
-              <p className="font-open-sans text-gray-300">
-                We hire people who ship. Experience building real hardware, writing production code,
-                or operating manufacturing systems is worth more than credentials.
+              <p className="font-open-sans text-gray-300 text-sm">
+                Grid-tied inverters, high-frequency switching, magnetics design, thermal management,
+                EMI/EMC, control loops for power conversion.
               </p>
             </div>
 
-            <div className="bg-steel-blue/20 border-l-4 border-energy-green rounded-lg p-6">
-              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3">
-                Extreme Ownership
+            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+              <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
+                Motor Control & Embedded Firmware
               </h3>
-              <p className="font-open-sans text-gray-300">
-                You own your work end-to-end. No passing the buck. If something breaks, you fix it.
-                If a problem needs solving, you solve it.
+              <p className="font-open-sans text-gray-300 text-sm">
+                Real-time control on bare metal or RTOS, motor drive algorithms (FOC, SVPWM),
+                sensor integration, CAN/Modbus communication.
               </p>
             </div>
 
-            <div className="bg-steel-blue/20 border-l-4 border-energy-green rounded-lg p-6">
-              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3">
-                Intellectual Honesty
+            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+              <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
+                Mechanical & Rotor Design
               </h3>
-              <p className="font-open-sans text-gray-300">
-                We value clear thinking and honest communication. No BS, no hype, no pretending
-                things are working when they are not. The physics does not care about your story.
+              <p className="font-open-sans text-gray-300 text-sm">
+                High-speed rotating machinery, FEA/CFD, precision bearings (magnetic, ceramic),
+                rotor dynamics, structural integrity, vibration analysis.
               </p>
             </div>
 
-            <div className="bg-steel-blue/20 border-l-4 border-energy-green rounded-lg p-6">
-              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3">
-                Long-Term Thinking
+            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+              <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
+                Composite Manufacturing & Testing
               </h3>
-              <p className="font-open-sans text-gray-300">
-                We are building infrastructure that will operate for decades. We care about quality,
-                durability, and doing things right—not just fast.
+              <p className="font-open-sans text-gray-300 text-sm">
+                Carbon fiber layup, autoclave processing, composite tooling, mechanical testing
+                (tensile, burst, fatigue), material characterization.
+              </p>
+            </div>
+
+            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+              <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
+                Controls, SCADA & Manufacturing Systems
+              </h3>
+              <p className="font-open-sans text-gray-300 text-sm">
+                Factory automation, SCADA integration, production monitoring, data acquisition,
+                PLC programming, industrial networking.
+              </p>
+            </div>
+
+            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+              <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
+                Systems Integration & Field Engineering
+              </h3>
+              <p className="font-open-sans text-gray-300 text-sm">
+                Site commissioning, grid interconnection, troubleshooting in the field, customer
+                support, system-level debugging, electrical safety.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Application Form */}
       <section className="py-20 bg-gradient-to-b from-steel-blue/10 to-midnight-black">
         <div className="max-w-3xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-4">
-              Tell Us How You Want to Contribute
+              Apply
             </h2>
-            <p className="font-open-sans text-lg text-gray-300">
-              Interested in joining? Fill out the form below and tell us about your background.
+            <p className="font-open-sans text-lg text-gray-300 leading-relaxed">
+              Screening is based entirely on the <strong className="text-industrial-white">portfolio
+              or project link</strong> you provide below. Without proof of work, your application will
+              not be considered. Resumes are collected later for administrative purposes only.
             </p>
           </div>
 
@@ -233,8 +320,6 @@ const JoinPage: React.FC = () => {
                   id="name"
                   name="name"
                   required
-                  value={formData.name}
-                  onChange={handleChange}
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                 />
               </div>
@@ -248,24 +333,40 @@ const JoinPage: React.FC = () => {
                   id="email"
                   name="email"
                   required
-                  value={formData.email}
-                  onChange={handleChange}
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                 />
               </div>
 
               <div>
+                <label htmlFor="portfolio" className="block font-montserrat font-semibold text-industrial-white mb-2">
+                  Portfolio or Project Link *
+                </label>
+                <input
+                  type="url"
+                  id="portfolio"
+                  name="portfolio"
+                  required
+                  placeholder="https://..."
+                  className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
+                />
+                <p className="mt-2 font-open-sans text-sm text-gray-400 leading-relaxed">
+                  <strong className="text-energy-green">This is the most important field.</strong> Provide
+                  a link to: portfolio site, GitHub/GitLab repo, Google Drive or Dropbox with CAD files,
+                  project writeup, build log, YouTube walkthrough, or anything that shows what you have built.
+                  If you have multiple links, include them in the message field below.
+                </p>
+              </div>
+
+              <div>
                 <label htmlFor="background" className="block font-montserrat font-semibold text-industrial-white mb-2">
-                  Background / Expertise *
+                  Technical Background / Expertise *
                 </label>
                 <input
                   type="text"
                   id="background"
                   name="background"
                   required
-                  placeholder="e.g., Power electronics engineer, 5 years at Tesla"
-                  value={formData.background}
-                  onChange={handleChange}
+                  placeholder="e.g., Power electronics engineer, mechanical design, embedded systems"
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                 />
               </div>
@@ -279,9 +380,7 @@ const JoinPage: React.FC = () => {
                   id="interest"
                   name="interest"
                   required
-                  placeholder="e.g., Inverter design, rotor dynamics, manufacturing systems"
-                  value={formData.interest}
-                  onChange={handleChange}
+                  placeholder="e.g., Rotor design, inverter development, control algorithms"
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                 />
               </div>
@@ -294,9 +393,7 @@ const JoinPage: React.FC = () => {
                   id="message"
                   name="message"
                   rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Tell us more about your experience, projects you've built, why you're interested..."
+                  placeholder="Describe your projects, tools you use, problems you have solved. Include additional portfolio links if needed."
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors resize-none"
                 />
               </div>
@@ -312,17 +409,23 @@ const JoinPage: React.FC = () => {
 
               {submitStatus === 'success' && (
                 <div className="bg-energy-green/20 border border-energy-green text-industrial-white rounded-lg p-4 text-center">
-                  Thank you! We'll review your application and be in touch.
+                  {result}. We will review your work and be in touch if there is a fit.
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="bg-red-500/20 border border-red-500 text-industrial-white rounded-lg p-4 text-center">
-                  Something went wrong. Please try again or email us directly at careers@ontheflyenergy.com
+                  {result || 'Something went wrong. Please try again or email us directly at careers@ontheflyenergy.com'}
                 </div>
               )}
             </div>
           </form>
+
+          <div className="mt-8 text-center">
+            <p className="font-open-sans text-sm text-gray-400">
+              No proof of work? Do not apply. Build something first, then come back.
+            </p>
+          </div>
         </div>
       </section>
     </div>
