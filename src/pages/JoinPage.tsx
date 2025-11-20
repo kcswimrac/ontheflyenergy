@@ -29,12 +29,13 @@ const JoinPage: React.FC = () => {
         event.currentTarget.reset();
       } else {
         console.log('Error', data);
-        setResult(data.message);
+        setResult(data.message || 'Submission failed. Please check all fields and try again.');
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setResult('An error occurred. Please try again.');
+      setResult('Network error. Please check your connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -342,11 +343,11 @@ const JoinPage: React.FC = () => {
                   Portfolio or Project Link *
                 </label>
                 <input
-                  type="url"
+                  type="text"
                   id="portfolio"
                   name="portfolio"
                   required
-                  placeholder="https://..."
+                  placeholder="https://github.com/yourname/project or https://yourportfolio.com"
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                 />
                 <p className="mt-2 font-open-sans text-sm text-gray-400 leading-relaxed">
