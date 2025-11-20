@@ -4,40 +4,34 @@ import { CheckCircle2, Circle } from 'lucide-react';
 const ProgressSection: React.FC = () => {
   const milestones = [
     {
-      completed: true,
-      title: "Rotor-Seed Prototype Design",
-      description: "Initial 10kW prototype concept with composite rotor and magnetic bearing configuration",
-      date: "Q4 2024"
-    },
-    {
-      completed: true,
-      title: "Containment & Burst Analysis",
-      description: "FEA modeling for rotor containment structures and burst protection systems",
-      date: "Q1 2025"
-    },
-    {
-      completed: true,
-      title: "Inverter Design Exploration",
-      description: "Power electronics architecture for grid integration and sub-second response",
-      date: "Q1 2025"
+      completed: false,
+      title: "Foundations: Core Technology Integration",
+      description: "First integrated kinetic storage module combining high-speed rotor with custom 5 kW grid-tie inverter. Rotor-Seed V1/V2 prototypes, inverter demonstration with sub-second response, hybrid operation with lithium, early telemetry through Factory-OS, federal innovation program submissions.",
+      date: "Q4 2025"
     },
     {
       completed: false,
-      title: "Pilot Site Conversations",
-      description: "Engaging with data center operators and industrial partners for early pilot deployments",
-      date: "In Progress"
+      title: "From Prototype to Pilot-Ready Systems",
+      description: "Engineering discipline phase: Rotor-Seed V3 with improved bearings and containment validation, Inverter V2 with enhanced control loops, first hybrid kinetic-plus-lithium demo, failure mode modeling, defined architecture for Rotor-Pod (20-30 kW class).",
+      date: "Q1–Q2 2026"
     },
     {
       completed: false,
-      title: "Manufacturing Partnership Development",
-      description: "Building relationships with composite manufacturers and precision machining vendors",
-      date: "Q2 2025"
+      title: "Pilot Site Engineering + LOIs",
+      description: "Lock final Rotor-Pod design, develop BOM and installation workflow, initiate UL 1741-SB and IEEE 1547 certification, sign pilot commitments with early-adopter customers in AI and industrial sectors, expand Factory-OS monitoring for fleet management.",
+      date: "Q3 2026"
     },
     {
       completed: false,
-      title: "First Working Prototype",
-      description: "Assembly and testing of first integrated flywheel system with control electronics",
-      date: "Target Q3 2025"
+      title: "Pilot Deployment #1",
+      description: "Deploy first pilot system to live customer environment. Demonstrate ride-through, peak-shaving, and fast power-balancing. Characterize efficiency and dispatch speed. Validate integration with existing systems. Train ML models on rotor health. Publish performance summaries.",
+      date: "Q4 2026"
+    },
+    {
+      completed: false,
+      title: "Scaling Toward Modular Energy Infrastructure",
+      description: "50-250 kW Rotor-Pod variants, containerized Rotor-Plant systems, full API integration for data center orchestration and grid services, certification and manufacturability, high-volume composite rotor production, industrial and utility partnerships.",
+      date: "2027+"
     }
   ];
 

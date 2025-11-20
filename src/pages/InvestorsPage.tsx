@@ -175,39 +175,55 @@ const InvestorsPage: React.FC = () => {
             </div>
             <div className="flex-1">
               <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-6">
-                12–18 Month Roadmap
+                Roadmap to Deployment
               </h2>
               <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-32 font-roboto-mono text-sm text-energy-green">
-                    Q2 2025
-                  </div>
-                  <p className="font-open-sans text-gray-300">
-                    Complete first integrated prototype assembly and initial testing
-                  </p>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-32 font-roboto-mono text-sm text-energy-green">
-                    Q3 2025
-                  </div>
-                  <p className="font-open-sans text-gray-300">
-                    Validate performance metrics: cycle life, power delivery, thermal management
-                  </p>
-                </div>
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-32 font-roboto-mono text-sm text-energy-green">
                     Q4 2025
                   </div>
                   <p className="font-open-sans text-gray-300">
-                    Launch first pilot deployment at data center or industrial partner site
+                    <strong>Foundations:</strong> First integrated kinetic storage module with 5 kW grid-tie inverter.
+                    Rotor-Seed V1/V2 prototypes, sub-second response demonstration, hybrid lithium operation,
+                    Factory-OS telemetry, federal program submissions.
                   </p>
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="flex-shrink-0 w-32 font-roboto-mono text-sm text-energy-green">
-                    2026
+                    Q1–Q2 2026
                   </div>
                   <p className="font-open-sans text-gray-300">
-                    Scale manufacturing, pursue certification pathways, expand pilot network
+                    <strong>Pilot-Ready Systems:</strong> Rotor-Seed V3 with improved bearings and containment,
+                    Inverter V2 with enhanced controls, hybrid demo unit, failure mode modeling, defined Rotor-Pod
+                    architecture (20-30 kW).
+                  </p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-32 font-roboto-mono text-sm text-energy-green">
+                    Q3 2026
+                  </div>
+                  <p className="font-open-sans text-gray-300">
+                    <strong>Pilot Engineering:</strong> Lock final Rotor-Pod design, develop installation workflow,
+                    initiate UL/IEEE certification, sign pilot LOIs with AI and industrial customers, expand Factory-OS
+                    for fleet management.
+                  </p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-32 font-roboto-mono text-sm text-energy-green">
+                    Q4 2026
+                  </div>
+                  <p className="font-open-sans text-gray-300">
+                    <strong>First Deployment:</strong> Live pilot system at customer site. Demonstrate ride-through,
+                    peak-shaving, fast balancing. Characterize performance and validate integration. Publish results.
+                  </p>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-32 font-roboto-mono text-sm text-energy-green">
+                    2027+
+                  </div>
+                  <p className="font-open-sans text-gray-300">
+                    <strong>Scaling:</strong> 50-250 kW variants, containerized systems, API integration for data centers,
+                    certification completion, high-volume composite production, industrial and utility partnerships.
                   </p>
                 </div>
               </div>

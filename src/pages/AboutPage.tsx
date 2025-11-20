@@ -103,40 +103,61 @@ const AboutPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Founder Story Placeholder */}
+      {/* Founder Bio */}
       <section className="py-20 bg-midnight-black">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="font-montserrat font-bold text-4xl text-industrial-white mb-8 text-center">
-            The Founding Team
+          <h2 className="font-montserrat font-bold text-4xl text-industrial-white mb-12 text-center">
+            Founder
           </h2>
 
-          <div className="bg-steel-blue/20 border border-energy-green/30 rounded-lg p-8">
-            <p className="font-open-sans text-lg text-gray-300 leading-relaxed mb-6">
-              Our founding team brings deep, hands-on experience across automation, manufacturing,
-              casting, EVs, and energy systems. We have built physical products under real constraints—navigating
-              supply chains, designing for manufacturability, and delivering systems that work in
-              the field, not just on paper.
+          <div className="bg-steel-blue/20 border border-energy-green/30 rounded-lg p-10">
+            <h3 className="font-montserrat font-bold text-2xl text-energy-green mb-2">
+              Kris Canete
+            </h3>
+            <p className="font-open-sans text-gray-400 mb-8">
+              Founder, On The Fly Energy
             </p>
-            <p className="font-open-sans text-lg text-gray-300 leading-relaxed mb-6">
-              This background matters. Flywheel energy storage is not a software problem. It requires
-              precision mechanical engineering, advanced composite manufacturing, sophisticated power
-              electronics, and control systems that operate at grid-scale reliability. We have built
-              these types of systems before.
-            </p>
-            <p className="font-open-sans text-lg text-gray-300 leading-relaxed">
-              We are not academics trying to commercialize a lab concept. We are engineers and builders
-              who have shipped hardware, operated manufacturing facilities, and solved problems in the
-              real world. That experience is the foundation of On The Fly Energy.
-            </p>
-          </div>
 
-          {/* TODO Placeholder */}
-          <div className="mt-12 bg-energy-green/10 border-l-4 border-energy-green rounded-lg p-6">
-            <p className="font-open-sans text-gray-300">
-              <strong className="text-energy-green">TODO:</strong> Add individual founder bios with
-              specific backgrounds, LinkedIn links, and credibility markers (companies worked at,
-              systems built, relevant patents/publications if any).
-            </p>
+            <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
+              <p>
+                Kris built his career inside environments where hardware has to work the first time and
+                every time. He started in law enforcement, where operating under pressure shaped his bias
+                for systems that are practical, robust, and built for failure modes instead of ideal
+                conditions. He carried that mindset into engineering, moving through roles in automation,
+                EV manufacturing, composite casting, robotics, and industrial energy systems.
+              </p>
+
+              <p>
+                He's worked in the places where precision and reliability decide whether production runs
+                or stalls: Tesla, Rangeview, Gillig, and other fast-paced industrial teams. His work has
+                ranged from designing and deploying six-axis automation cells, to building composite molding
+                processes for aerospace castings, to leading investigations into high-stakes hardware failures,
+                to running hands-on machine shop operations out of a garage when that was the fastest way to
+                make progress. He's managed engineers, run quality programs, stood up equipment from scratch,
+                and delivered systems that had to survive real-world conditions, not demo-day theatrics.
+              </p>
+
+              <p>
+                Across all of it, the constant has been an ability to take an idea, build the prototype,
+                test it to destruction, fix it, and ship the version that actually works.
+              </p>
+
+              <p>
+                On The Fly Energy came out of that pattern. After years inside factories, grid-adjacent
+                operations, and EV manufacturing, Kris saw the structural gap forming under the surge of
+                AI and industrial electrification: lithium can store energy, but it can't handle the power
+                volatility. A fast, modular kinetic buffer has been missing from the grid stack. So he
+                started building it.
+              </p>
+
+              <p>
+                He's now focused on assembling a team capable of creating that new layer of grid physics—engineers
+                who care about rigor, iteration, and solving the parts of the energy problem that aren't glamorous
+                but matter far more than marketing cycles. For investors, the appeal is straightforward: this is a
+                founder who has spent his entire career pushing hard tech from zero to one under real constraints,
+                and who knows how to turn a garage prototype into a functional, scalable system.
+              </p>
+            </div>
           </div>
         </div>
       </section>
