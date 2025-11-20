@@ -56,7 +56,7 @@ const JoinPage: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access_key: '919b97a3-a0bf-4bbc-99e1-ca7da35e3bf0',
+          access_key: '71410425-89f6-4094-b387-361c001bdad0',
           subject: 'Talent Inquiry from On The Fly Energy Website',
           from_name: formData.name,
           ...formData
