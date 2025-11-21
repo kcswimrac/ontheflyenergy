@@ -174,7 +174,7 @@ const JoinPage: React.FC = () => {
               </h2>
               <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
                 <p>
-                  Full-time employees have the option to invest directly into the company and become
+                  Full-time employees are required to invest directly into the company and become
                   real owners. This is not a standard stock option plan. It is a partner-level program
                   for people committed to building the company.
                 </p>
