@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Calendar } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Edit2 } from 'lucide-react';
 import { getPostBySlug, Post } from '../utils/markdownParser';
 import VoltageConfigDiagram from '../components/VoltageConfigDiagram';
+import { useAuth } from '../contexts/AuthContext';
 
 const InsightPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<Post | null>(null);
   const [loading, setLoading] = useState(true);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const loadPost = async () => {
@@ -50,13 +52,24 @@ const InsightPostPage: React.FC = () => {
       {/* Back Button */}
       <div className="bg-steel-blue/10 border-b border-steel-blue/20">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
-          <Link
-            to="/insights"
-            className="inline-flex items-center gap-2 text-gray-300 hover:text-energy-green transition-colors font-montserrat"
-          >
-            <ArrowLeft className="h-5 w-5" />
-            All Insights
-          </Link>
+          <div className="flex items-center justify-between">
+            <Link
+              to="/insights"
+              className="inline-flex items-center gap-2 text-gray-300 hover:text-energy-green transition-colors font-montserrat"
+            >
+              <ArrowLeft className="h-5 w-5" />
+              All Insights
+            </Link>
+            {isAuthenticated && (
+              <Link
+                to={`/admin/editor?edit=${slug}`}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-energy-green/10 text-energy-green border border-energy-green/30 rounded-lg hover:bg-energy-green/20 transition-colors font-montserrat text-sm"
+              >
+                <Edit2 className="h-4 w-4" />
+                Edit Post
+              </Link>
+            )}
+          </div>
         </div>
       </div>
 

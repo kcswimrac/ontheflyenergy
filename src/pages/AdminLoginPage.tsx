@@ -7,20 +7,23 @@ const AdminLoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
+    setLoading(true);
 
-    const success = login(username, password);
+    const success = await login(username, password);
     if (success) {
       navigate('/admin/editor');
     } else {
       setError('Invalid credentials');
       setPassword('');
     }
+    setLoading(false);
   };
 
   return (
@@ -77,9 +80,10 @@ const AdminLoginPage: React.FC = () => {
 
           <button
             type="submit"
-            className="w-full px-6 py-3 bg-energy-green text-midnight-black font-montserrat font-semibold rounded-lg hover:bg-green-500 transition-colors"
+            disabled={loading}
+            className="w-full px-6 py-3 bg-energy-green text-midnight-black font-montserrat font-semibold rounded-lg hover:bg-green-500 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Login
+            {loading ? 'Logging in...' : 'Login'}
           </button>
         </form>
       </div>
