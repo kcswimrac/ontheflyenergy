@@ -120,42 +120,19 @@ const AboutPage: React.FC = () => {
 
             <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
               <p>
-                Kris built his career inside environments where hardware has to work the first time and
-                every time. He started in law enforcement, where operating under pressure shaped his bias
-                for systems that are practical, robust, and built for failure modes instead of ideal
-                conditions. He carried that mindset into engineering, moving through roles in automation,
-                EV manufacturing, composite casting, robotics, and industrial energy systems.
+                Kris built his career in places where hardware only gets one shot to work. He started in law enforcement, where operating under pressure shaped his bias for systems that are practical, resilient, and built for failure modes instead of ideal conditions. That mindset carried into engineering, where he moved through automation, EV manufacturing, casting, robotics, and industrial energy systems.
               </p>
 
               <p>
-                He's worked in the places where precision and reliability decide whether production runs
-                or stalls: Tesla, Rangeview, Gillig, and other fast-paced industrial teams. His work has
-                ranged from designing and deploying six-axis automation cells, to building composite molding
-                processes for aerospace castings, to leading investigations into high-stakes hardware failures,
-                to running hands-on machine shop operations out of a garage when that was the fastest way to
-                make progress. He's managed engineers, run quality programs, stood up equipment from scratch,
-                and delivered systems that had to survive real-world conditions, not demo-day theatrics.
+                He has designed and deployed six-axis automation cells, built processes for castings, led investigations into high-stakes hardware failures, and run machine shops when prototypes needed to be made immediately. His work at Tesla, Sila, and Rangeview, reflects a consistent pattern: take an idea, build it fast, break it, fix what matters, and deliver a version that survives the real world.
               </p>
 
               <p>
-                Across all of it, the constant has been an ability to take an idea, build the prototype,
-                test it to destruction, fix it, and ship the version that actually works.
+                On The Fly Energy is a continuation of that pattern. After years inside factories and grid-adjacent operations, Kris saw the gap that lithium can't close alone. Energy storage handles capacity, but not volatility. The grid needs a modular kinetic buffer. So he started building it.
               </p>
 
               <p>
-                On The Fly Energy came out of that pattern. After years inside factories, grid-adjacent
-                operations, and EV manufacturing, Kris saw the structural gap forming under the surge of
-                AI and industrial electrification: lithium can store energy, but it can't handle the power
-                volatility. A fast, modular kinetic buffer has been missing from the grid stack. So he
-                started building it.
-              </p>
-
-              <p>
-                He's now focused on assembling a team capable of creating that new layer of grid physics - engineers
-                who care about rigor, iteration, and solving the parts of the energy problem that aren't glamorous
-                but matter far more than marketing cycles. For investors, the appeal is straightforward: this is a
-                founder who has spent his entire career pushing hard tech from zero to one under real constraints,
-                and who knows how to turn a garage prototype into a functional, scalable system.
+                Today he's assembling a team to create that missing layer of grid physics. The people who join him care about rigor, iteration, and solving the parts of the energy problem that most companies avoid. For investors, the appeal is simple: Kris has spent his entire career pushing hard tech from zero to one under real constraints, and knows how to turn a garage prototype into a scalable system.
               </p>
             </div>
           </div>
