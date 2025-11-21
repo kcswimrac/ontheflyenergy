@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TrendingUp, Target, CheckCircle2, Map, DollarSign, Send } from 'lucide-react';
+import { trackFormSubmission } from '../utils/analytics';
 
 const InvestorsPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,6 +30,8 @@ const InvestorsPage: React.FC = () => {
         setResult('Form Submitted Successfully');
         setSubmitStatus('success');
         event.currentTarget.reset();
+        // Track successful form submission
+        trackFormSubmission('investor_inquiry');
       } else {
         console.log('Error', data);
         setResult(data.message || 'Submission failed. Please try again.');

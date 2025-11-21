@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Code, Wrench, Zap, Send, Users, Target } from 'lucide-react';
+import { trackFormSubmission } from '../utils/analytics';
 
 const JoinPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,6 +30,8 @@ const JoinPage: React.FC = () => {
         setResult('Application Submitted Successfully');
         setSubmitStatus('success');
         event.currentTarget.reset();
+        // Track successful form submission
+        trackFormSubmission('talent_application');
       } else {
         console.log('Error', data);
         setResult(data.message || 'Submission failed. Please check all fields and try again.');
