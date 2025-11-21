@@ -75,16 +75,24 @@ async function updatePostsManifest(newSlug: string): Promise<void> {
       const response = await githubRequest('GET', manifestPath);
       if (response.ok) {
         const data = await response.json();
-        const decoded = atob(data.content);
+        // GitHub API returns base64 content with newlines - remove them before decoding
+        const cleanContent = data.content.replace(/\n/g, '');
+        const decoded = atob(cleanContent);
         const manifest = JSON.parse(decoded);
         currentSlugs = manifest.slugs || [];
+        console.log('Current manifest slugs:', currentSlugs);
       }
+    } else {
+      console.log('No existing manifest found, creating new one');
     }
 
     // Add new slug if not already present
     if (!currentSlugs.includes(newSlug)) {
       currentSlugs.push(newSlug);
       currentSlugs.sort(); // Keep alphabetically sorted
+      console.log('Updated manifest with new slug:', newSlug);
+    } else {
+      console.log('Slug already exists in manifest:', newSlug);
     }
 
     // Save updated manifest
@@ -96,7 +104,13 @@ async function updatePostsManifest(newSlug: string): Promise<void> {
       ...(manifestSha && { sha: manifestSha }),
     };
 
-    await githubRequest('PUT', manifestPath, manifestBody);
+    const saveResponse = await githubRequest('PUT', manifestPath, manifestBody);
+    if (saveResponse.ok) {
+      console.log('Manifest updated successfully');
+    } else {
+      const errorText = await saveResponse.text();
+      console.error('Failed to update manifest:', saveResponse.status, errorText);
+    }
   } catch (error) {
     console.error('Error updating posts manifest:', error);
   }
