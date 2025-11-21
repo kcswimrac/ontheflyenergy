@@ -1,7 +1,6 @@
 import React from 'react';
-import { ArrowRight, Zap } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logoImg  from '../assets/logo.png';
 import heroImg from "../assets/home.png";
 
 const HeroSection = () => {
@@ -25,52 +24,8 @@ const HeroSection = () => {
     />
   </div>
       <div className="relative z-10 text-center px-6 max-w-6xl mx-auto">
-        {/* Company Logo */}
-        <div className="mb-12 animate-fade-in">
-          {/* Replace this img src with your actual logo URL */}
-          <div className="flex justify-center mb-6">
-            <img 
-              src={logoImg}
-              alt="On The Fly Energy Logo" 
-              className="h-16 md:h-20 w-auto invert brightness-0 hue-rotate-[90deg]"
-            />
-           
-          </div>
-          
-          {/* Made in America Badge */}
-          <div className="flex justify-center">
-            <div className="relative">
-              {/* Replace this img src with your actual Made in America image URL */}
-              {/* <img 
-                src="https://via.placeholder.com/120x60/B22222/FFFFFF?text=MADE+IN+USA" 
-                alt="Made in America" 
-                className="h-12 w-auto opacity-90 hover:opacity-100 transition-opacity duration-300"
-              /> */}
-           <div className="flex items-center gap-2 space-x-2">
-              <div className="bg-energy-green p-2 rounded flex items-center justify-center">
-                <Zap className="h-12 w-12 text-black" />
-              </div>
-              <h4 className="font-montserrat font-bold text-2xl md:text-3xl lg:text-4xl text-industrial-white leading-tight">
-                On The Fly Energy
-              </h4>
-            </div>
-
-              {/* Alternative: Custom Made in America badge if you prefer */}
-              {/* <div className="bg-gradient-to-r from-blue-600 via-white to-red-600 p-0.5 rounded-lg">
-                <div className="bg-midnight-black px-4 py-2 rounded-lg flex items-center space-x-2">
-                  <Star className="h-4 w-4 text-blue-400" />
-                  <span className="font-montserrat font-bold text-xs text-white tracking-wider">
-                    MADE IN AMERICA
-                  </span>
-                  <Star className="h-4 w-4 text-red-400" />
-                </div>
-              </div> */}
-            </div>
-          </div>
-        </div>
-
         {/* Main headline */}
-        <div className="mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
+        <div className="mb-8 animate-slide-up">
           <h2 className="font-montserrat font-bold text-4xl md:text-6xl lg:text-7xl text-industrial-white mb-6 leading-tight">
             AI is breaking the grid.
           </h2>
@@ -80,14 +35,14 @@ const HeroSection = () => {
         </div>
 
         {/* Subtitle */}
-        <p className="font-open-sans text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.4s' }}>
+        <p className="font-open-sans text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
           We are building the kinetic layer for an electrified world.
           Modular flywheel power buffers that complement batteries, protect the grid,
           and handle the 0–5 minute volatility AI and industrial loads create.
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up" style={{ animationDelay: '0.6s' }}>
+        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
           <Link
             to="/join"
             className="group bg-energy-green hover:bg-green-500 text-midnight-black font-montserrat font-semibold text-lg px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center"
