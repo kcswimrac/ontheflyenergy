@@ -12,7 +12,10 @@ const InvestorsPage: React.FC = () => {
     setIsSubmitting(true);
     setResult('Sending...');
 
-    const formData = new FormData(event.currentTarget);
+    // Store form reference before async operation (event.currentTarget becomes null)
+    const form = event.currentTarget;
+
+    const formData = new FormData(form);
     formData.append('access_key', '71410425-89f6-4094-b387-361c001bdad0');
     formData.append('subject', 'Investor Inquiry from On The Fly Energy Website');
 
@@ -28,7 +31,7 @@ const InvestorsPage: React.FC = () => {
       if (response.ok) {
         setResult('Form Submitted Successfully');
         setSubmitStatus('success');
-        event.currentTarget.reset();
+        form.reset();
         // Track successful form submission
         trackFormSubmission('investor_inquiry');
       } else {
