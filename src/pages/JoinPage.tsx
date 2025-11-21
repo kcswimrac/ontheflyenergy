@@ -69,6 +69,17 @@ const JoinPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Hiring Status Note */}
+      <section className="py-12 bg-midnight-black">
+        <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
+          <div className="bg-energy-green/10 border border-energy-green/30 rounded-lg p-8">
+            <p className="font-open-sans text-lg text-industrial-white leading-relaxed">
+              <strong>Note:</strong> We are not actively hiring for any specific open roles at this time. However, we always have an opening for top talent. If you are exceptional at what you do and believe you can contribute to building the kinetic layer for the grid, we want to hear from you.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Philosophy */}
       <section className="py-20 bg-midnight-black">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
