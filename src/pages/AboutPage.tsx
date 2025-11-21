@@ -11,17 +11,17 @@ const AboutPage: React.FC = () => {
     {
       icon: <Factory className="h-8 w-8" />,
       title: "Manufacturing DNA",
-      description: "From casting to precision machining to production systems—we understand how things get made"
+      description: "From casting to precision machining to production systems - we understand how things get made"
     },
     {
       icon: <Zap className="h-8 w-8" />,
       title: "Energy Systems Experience",
-      description: "Direct work in EVs, industrial power, and grid-edge applications—we know the problem space"
+      description: "Direct work in EVs, industrial power, and grid-edge applications - we know the problem space"
     },
     {
       icon: <Target className="h-8 w-8" />,
       title: "Solving Real Problems",
-      description: "Not building technology for its own sake—focused on what the grid and industry actually need"
+      description: "Not building technology for its own sake - focused on what the grid and industry actually need"
     }
   ];
 
@@ -54,16 +54,16 @@ const AboutPage: React.FC = () => {
               infrastructure cannot deliver.
             </p>
             <p>
-              Lithium batteries are critical—but they are not the complete answer. They excel at
+              Lithium batteries are critical - but they are not the complete answer. They excel at
               energy storage over hours and days, but struggle with high cycle counts and rapid
-              power fluctuations. The 0–5 minute volatility window—where flywheels thrive—is where
+              power fluctuations. The 0-5 minute volatility window - where flywheels thrive - is where
               batteries degrade fastest and economics break down.
             </p>
             <p>
               <strong className="text-industrial-white">We saw this gap firsthand.</strong> Through
               years building automation systems, manufacturing equipment, and working in energy and
               EV sectors, we experienced the constraints of existing solutions. The grid needs a
-              kinetic layer—fast, durable, modular power storage that complements batteries and
+              kinetic layer - fast, durable, modular power storage that complements batteries and
               absorbs the chaos.
             </p>
             <p>
@@ -151,7 +151,7 @@ const AboutPage: React.FC = () => {
               </p>
 
               <p>
-                He's now focused on assembling a team capable of creating that new layer of grid physics—engineers
+                He's now focused on assembling a team capable of creating that new layer of grid physics - engineers
                 who care about rigor, iteration, and solving the parts of the energy problem that aren't glamorous
                 but matter far more than marketing cycles. For investors, the appeal is straightforward: this is a
                 founder who has spent his entire career pushing hard tech from zero to one under real constraints,
@@ -171,7 +171,7 @@ const AboutPage: React.FC = () => {
           <p className="font-open-sans text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
             We are committed to American manufacturing. Flywheel systems for critical infrastructure
             should be built domestically, with supply chains we control and quality we can guarantee.
-            This is not just a talking point—it is a strategic and operational imperative.
+            This is not just a talking point - it is a strategic and operational imperative.
           </p>
         </div>
       </section>

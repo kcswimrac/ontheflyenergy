@@ -87,8 +87,8 @@ const InvestorsPage: React.FC = () => {
                   need fast frequency regulation and peak shaving.
                 </p>
                 <p>
-                  Lithium batteries are optimized for energy—hours and days of storage. But they
-                  degrade rapidly under high cycle counts and high C-rates. The 0–5 minute power
+                  Lithium batteries are optimized for energy - hours and days of storage. But they
+                  degrade rapidly under high cycle counts and high C-rates. The 0-5 minute power
                   volatility window is where batteries are least economical.
                 </p>
                 <p>
@@ -120,12 +120,12 @@ const InvestorsPage: React.FC = () => {
                 <ul className="list-disc list-inside space-y-2 ml-4">
                   <li>Deliver instant power response (milliseconds)</li>
                   <li>Handle 100,000+ cycles with zero capacity degradation</li>
-                  <li>Integrate at the grid edge—data centers, industrial sites, microgrids</li>
+                  <li>Integrate at the grid edge - data centers, industrial sites, microgrids</li>
                   <li>Protect batteries by absorbing high-frequency volatility</li>
                   <li>Improve economics of AI and industrial loads by reducing demand charges and stabilizing grid connections</li>
                 </ul>
                 <p>
-                  We are not competing with lithium. We are complementing it—solving the power
+                  We are not competing with lithium. We are complementing it - solving the power
                   problem so batteries can focus on energy.
                 </p>
               </div>
