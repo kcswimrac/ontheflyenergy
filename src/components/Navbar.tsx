@@ -10,10 +10,16 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { path: '/investors', label: 'For Investors' },
     { path: '/join', label: 'Join Us' },
+    { path: '/insights', label: 'Insights' },
     { path: '/about', label: 'About' },
   ];
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === '/insights') {
+      return location.pathname.startsWith('/insights');
+    }
+    return location.pathname === path;
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-midnight-black/95 backdrop-blur-sm border-b border-steel-blue/20">

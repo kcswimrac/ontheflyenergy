@@ -5,6 +5,8 @@ import HomePage from './pages/HomePage';
 import InvestorsPage from './pages/InvestorsPage';
 import JoinPage from './pages/JoinPage';
 import AboutPage from './pages/AboutPage';
+import InsightsPage from './pages/InsightsPage';
+import InsightPostPage from './pages/InsightPostPage';
 import { usePageTracking } from './hooks/usePageTracking';
 
 // AppContent component to use hooks inside Router
@@ -20,6 +22,8 @@ function AppContent() {
           <Route path="/investors" element={<InvestorsPage />} />
           <Route path="/join" element={<JoinPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/insights" element={<InsightsPage />} />
+          <Route path="/insights/:slug" element={<InsightPostPage />} />
         </Routes>
       </div>
     </div>
