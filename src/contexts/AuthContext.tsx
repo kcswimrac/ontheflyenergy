@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 interface AuthContextType {
   isAuthenticated: boolean;
-  login: (username: string, password: string) => boolean;
+  login: (username: string, password: string) => Promise<boolean>;
   logout: () => void;
 }
 
@@ -12,29 +12,70 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    // Check if user is already logged in
-    const authStatus = sessionStorage.getItem('isAdminAuthenticated');
-    if (authStatus === 'true') {
-      setIsAuthenticated(true);
+    // Check if user has a valid token
+    const token = sessionStorage.getItem('authToken');
+    if (token) {
+      // Verify the token is still valid
+      verifyToken(token).then((valid) => {
+        if (valid) {
+          setIsAuthenticated(true);
+        } else {
+          sessionStorage.removeItem('authToken');
+        }
+      });
     }
   }, []);
 
-  const login = (username: string, password: string): boolean => {
-    // Check against environment variables
-    const adminUsername = import.meta.env.VITE_ADMIN_USERNAME;
-    const adminPassword = import.meta.env.VITE_ADMIN_PASSWORD;
+  const verifyToken = async (token: string): Promise<boolean> => {
+    try {
+      const response = await fetch('/api/auth/verify', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token }),
+      });
 
-    if (username === adminUsername && password === adminPassword) {
-      setIsAuthenticated(true);
-      sessionStorage.setItem('isAdminAuthenticated', 'true');
-      return true;
+      const data = await response.json();
+      return data.valid === true;
+    } catch (error) {
+      console.error('Token verification error:', error);
+      return false;
     }
-    return false;
+  };
+
+  const login = async (username: string, password: string): Promise<boolean> => {
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (!response.ok) {
+        return false;
+      }
+
+      const data = await response.json();
+
+      if (data.success && data.token) {
+        setIsAuthenticated(true);
+        sessionStorage.setItem('authToken', data.token);
+        return true;
+      }
+
+      return false;
+    } catch (error) {
+      console.error('Login error:', error);
+      return false;
+    }
   };
 
   const logout = () => {
     setIsAuthenticated(false);
-    sessionStorage.removeItem('isAdminAuthenticated');
+    sessionStorage.removeItem('authToken');
   };
 
   return (

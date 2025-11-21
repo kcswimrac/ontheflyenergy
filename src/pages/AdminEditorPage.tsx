@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, Save, Upload, LogOut, Image as ImageIcon } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 import { savePost, uploadImage } from '../utils/githubApi';
+import { getPostBySlug } from '../utils/markdownParser';
 
 const AdminEditorPage: React.FC = () => {
   const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const editSlug = searchParams.get('edit');
 
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');
@@ -18,13 +21,36 @@ const AdminEditorPage: React.FC = () => {
   const [content, setContent] = useState('');
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!isAuthenticated) {
       navigate('/admin/login');
     }
   }, [isAuthenticated, navigate]);
+
+  useEffect(() => {
+    // Load existing post if editing
+    if (editSlug) {
+      setLoading(true);
+      getPostBySlug(editSlug).then((post) => {
+        if (post) {
+          setTitle(post.title);
+          setSlug(post.slug);
+          setDate(post.date);
+          setSummary(post.summary);
+          setTags(post.tags.join(', '));
+          setThumbnail(post.thumbnail);
+          setVideoUrl(post.videoUrl || '');
+          setContent(post.content);
+        } else {
+          setMessage({ type: 'error', text: 'Post not found' });
+        }
+        setLoading(false);
+      });
+    }
+  }, [editSlug]);
 
   const generateSlug = (title: string) => {
     return title
@@ -127,6 +153,14 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
     return null;
   }
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-midnight-black flex items-center justify-center">
+        <p className="font-open-sans text-xl text-gray-300">Loading post...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-midnight-black">
       {/* Header */}
@@ -141,6 +175,10 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
                 <ArrowLeft className="h-5 w-5" />
                 Back to Insights
               </button>
+              <div className="h-6 w-px bg-energy-green/20"></div>
+              <h1 className="font-montserrat font-semibold text-lg text-industrial-white">
+                {editSlug ? 'Edit Post' : 'Create New Post'}
+              </h1>
             </div>
             <div className="flex items-center gap-4">
               <button
@@ -195,6 +233,9 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
                     className="w-full px-4 py-2 bg-midnight-black border border-energy-green/20 rounded-lg text-industrial-white font-open-sans focus:outline-none focus:border-energy-green transition-colors"
                     placeholder="Post title"
                   />
+                  <p className="mt-1 text-xs text-gray-400 font-open-sans">
+                    The main heading of your post. Auto-generates URL slug.
+                  </p>
                 </div>
 
                 <div>
@@ -208,6 +249,9 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
                     className="w-full px-4 py-2 bg-midnight-black border border-energy-green/20 rounded-lg text-industrial-white font-open-sans font-mono text-sm focus:outline-none focus:border-energy-green transition-colors"
                     placeholder="post-url-slug"
                   />
+                  <p className="mt-1 text-xs text-gray-400 font-open-sans">
+                    URL-friendly identifier. Will appear as /insights/your-slug
+                  </p>
                 </div>
 
                 <div>
@@ -220,6 +264,9 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
                     onChange={(e) => setDate(e.target.value)}
                     className="w-full px-4 py-2 bg-midnight-black border border-energy-green/20 rounded-lg text-industrial-white font-open-sans focus:outline-none focus:border-energy-green transition-colors"
                   />
+                  <p className="mt-1 text-xs text-gray-400 font-open-sans">
+                    Publication date displayed on the post.
+                  </p>
                 </div>
 
                 <div>
@@ -233,6 +280,9 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
                     className="w-full px-4 py-2 bg-midnight-black border border-energy-green/20 rounded-lg text-industrial-white font-open-sans focus:outline-none focus:border-energy-green transition-colors resize-none"
                     placeholder="Brief summary for card display"
                   />
+                  <p className="mt-1 text-xs text-gray-400 font-open-sans">
+                    Short description shown on the Insights landing page cards.
+                  </p>
                 </div>
 
                 <div>
@@ -246,6 +296,9 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
                     className="w-full px-4 py-2 bg-midnight-black border border-energy-green/20 rounded-lg text-industrial-white font-open-sans focus:outline-none focus:border-energy-green transition-colors"
                     placeholder="Grid, AI, Storage"
                   />
+                  <p className="mt-1 text-xs text-gray-400 font-open-sans">
+                    Separate tags with commas. Used for filtering posts.
+                  </p>
                 </div>
 
                 <div>
@@ -273,6 +326,9 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
                         {uploading ? 'Uploading...' : 'Upload Image'}
                       </span>
                     </label>
+                    <p className="text-xs text-gray-400 font-open-sans">
+                      Card header image. Upload file or paste path.
+                    </p>
                   </div>
                 </div>
 
@@ -287,6 +343,9 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}
                     className="w-full px-4 py-2 bg-midnight-black border border-energy-green/20 rounded-lg text-industrial-white font-open-sans text-sm focus:outline-none focus:border-energy-green transition-colors"
                     placeholder="https://youtube.com/embed/..."
                   />
+                  <p className="mt-1 text-xs text-gray-400 font-open-sans">
+                    YouTube or Vimeo embed URL. Displays above post content.
+                  </p>
                 </div>
               </div>
             </div>
