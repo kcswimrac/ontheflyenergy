@@ -1,11 +1,94 @@
 import React, { useState } from 'react';
-import { Code, Wrench, Zap, Send, Users, Target } from 'lucide-react';
+import { Code, Wrench, Zap, Send, Users, Target, X } from 'lucide-react';
 import { trackFormSubmission } from '../utils/analytics';
+
+interface DisciplineDetail {
+  title: string;
+  summary: string;
+  roleDescription: string;
+  idealCandidate: string[];
+}
+
+const disciplineDetails: Record<string, DisciplineDetail> = {
+  powerElectronics: {
+    title: "Power Electronics & Inverter Design",
+    summary: "Grid-tied inverters, high-frequency switching, magnetics design, thermal management, EMI/EMC, control loops for power conversion.",
+    roleDescription: "Design and validate grid-tie inverters for flywheel energy storage systems. Focus on high-efficiency power conversion, fast response times, and grid code compliance. Work ranges from circuit design and magnetics optimization to thermal management and EMI mitigation.",
+    idealCandidate: [
+      "Experience designing grid-tied inverters or motor drives (3-phase, high power)",
+      "Deep understanding of switching topologies, control loops, and magnetics",
+      "Hands-on prototyping and lab validation experience",
+      "Portfolio showing real hardware builds, test data, or published designs",
+      "Bonus: experience with energy storage, grid interconnection, or UL1741/IEEE1547"
+    ]
+  },
+  motorControl: {
+    title: "Motor Control & Embedded Firmware",
+    summary: "Real-time control on bare metal or RTOS, motor drive algorithms (FOC, SVPWM), sensor integration, CAN/Modbus communication.",
+    roleDescription: "Implement real-time control algorithms for high-speed motor/generator systems. Develop firmware for motor drives, sensor fusion, communication protocols, and system-level coordination. Work in C/C++ on embedded platforms with hard real-time constraints.",
+    idealCandidate: [
+      "Strong embedded C/C++ on ARM Cortex or similar microcontrollers",
+      "Experience with FOC, SVPWM, or similar motor control algorithms",
+      "Real-time systems experience (bare metal or RTOS)",
+      "Portfolio showing firmware projects, motor control implementations, or hardware integration",
+      "Bonus: familiarity with CAN, Modbus, or industrial communication protocols"
+    ]
+  },
+  mechanical: {
+    title: "Mechanical & Rotor Design",
+    summary: "High-speed rotating machinery, FEA/CFD, precision bearings (magnetic, ceramic), rotor dynamics, structural integrity, vibration analysis.",
+    roleDescription: "Design high-speed rotors and containment systems for kinetic energy storage. Run FEA/CFD simulations, optimize for stress/vibration/thermal performance, and validate mechanical integrity. Work closely with manufacturing to ensure designs are producible and testable.",
+    idealCandidate: [
+      "Mechanical engineering background with focus on rotating machinery or high-speed systems",
+      "Proficiency in FEA tools (ANSYS, Abaqus, SolidWorks Simulation, etc.)",
+      "Understanding of rotor dynamics, bearing systems, and structural mechanics",
+      "Portfolio showing CAD models, simulation results, or physical prototypes",
+      "Bonus: experience with composite rotors, magnetic bearings, or vacuum systems"
+    ]
+  },
+  composites: {
+    title: "Composite Manufacturing & Testing",
+    summary: "Carbon fiber layup, autoclave processing, composite tooling, mechanical testing (tensile, burst, fatigue), material characterization.",
+    roleDescription: "Develop manufacturing processes for composite flywheels and containment structures. Design layup schedules, build tooling, run autoclave cycles, and conduct mechanical testing. Focus on repeatability, quality control, and scaling from prototypes to production.",
+    idealCandidate: [
+      "Hands-on experience with carbon fiber or advanced composite manufacturing",
+      "Familiarity with autoclave processes, vacuum bagging, or resin infusion",
+      "Mechanical testing experience (tensile, burst, fatigue characterization)",
+      "Portfolio showing composite builds, test data, or process documentation",
+      "Bonus: aerospace or pressure vessel composite experience"
+    ]
+  },
+  controls: {
+    title: "Controls, SCADA & Manufacturing Systems",
+    summary: "Factory automation, SCADA integration, production monitoring, data acquisition, PLC programming, industrial networking.",
+    roleDescription: "Build manufacturing execution systems, SCADA integration, and production monitoring for flywheel assembly and testing. Integrate PLCs, data acquisition systems, and automation equipment. Focus on reliability, traceability, and real-time production insights.",
+    idealCandidate: [
+      "Experience with industrial automation, SCADA systems, or manufacturing execution",
+      "PLC programming (Siemens, Allen-Bradley, etc.) and industrial networking",
+      "Data acquisition and production monitoring system integration",
+      "Portfolio showing automation projects, SCADA deployments, or factory integration work",
+      "Bonus: experience in high-mix manufacturing or test automation"
+    ]
+  },
+  systemsIntegration: {
+    title: "Systems Integration & Field Engineering",
+    summary: "Site commissioning, grid interconnection, troubleshooting in the field, customer support, system-level debugging, electrical safety.",
+    roleDescription: "Commission flywheel systems at customer sites, perform grid interconnection, and troubleshoot system-level issues in the field. Interface with utilities, customers, and internal teams. Requires travel, hands-on debugging, and strong communication skills.",
+    idealCandidate: [
+      "Field experience with power systems, energy storage, or grid-connected equipment",
+      "Electrical safety certifications and comfort working with high-voltage systems",
+      "Strong troubleshooting and diagnostic skills across electrical, mechanical, and software domains",
+      "Portfolio showing field deployments, commissioning reports, or customer-facing projects",
+      "Bonus: experience with utility interconnection, grid codes, or energy storage deployments"
+    ]
+  }
+};
 
 const JoinPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [result, setResult] = useState('');
+  const [selectedDiscipline, setSelectedDiscipline] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -221,11 +304,14 @@ const JoinPage: React.FC = () => {
             Disciplines We Need
           </h2>
           <p className="font-open-sans text-lg text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-            We hire when we find exceptional people, not when we have headcount budget.
+            We hire when we find exceptional people, not when we have headcount budget. Click each card to learn more.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+            <button
+              onClick={() => setSelectedDiscipline('powerElectronics')}
+              className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6 hover:bg-steel-blue/30 hover:border-energy-green/40 transition-all duration-300 text-left cursor-pointer"
+            >
               <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
                 Power Electronics & Inverter Design
               </h3>
@@ -233,9 +319,13 @@ const JoinPage: React.FC = () => {
                 Grid-tied inverters, high-frequency switching, magnetics design, thermal management,
                 EMI/EMC, control loops for power conversion.
               </p>
-            </div>
+              <p className="font-open-sans text-energy-green text-sm mt-3">Click to learn more →</p>
+            </button>
 
-            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+            <button
+              onClick={() => setSelectedDiscipline('motorControl')}
+              className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6 hover:bg-steel-blue/30 hover:border-energy-green/40 transition-all duration-300 text-left cursor-pointer"
+            >
               <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
                 Motor Control & Embedded Firmware
               </h3>
@@ -243,9 +333,13 @@ const JoinPage: React.FC = () => {
                 Real-time control on bare metal or RTOS, motor drive algorithms (FOC, SVPWM),
                 sensor integration, CAN/Modbus communication.
               </p>
-            </div>
+              <p className="font-open-sans text-energy-green text-sm mt-3">Click to learn more →</p>
+            </button>
 
-            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+            <button
+              onClick={() => setSelectedDiscipline('mechanical')}
+              className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6 hover:bg-steel-blue/30 hover:border-energy-green/40 transition-all duration-300 text-left cursor-pointer"
+            >
               <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
                 Mechanical & Rotor Design
               </h3>
@@ -253,9 +347,13 @@ const JoinPage: React.FC = () => {
                 High-speed rotating machinery, FEA/CFD, precision bearings (magnetic, ceramic),
                 rotor dynamics, structural integrity, vibration analysis.
               </p>
-            </div>
+              <p className="font-open-sans text-energy-green text-sm mt-3">Click to learn more →</p>
+            </button>
 
-            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+            <button
+              onClick={() => setSelectedDiscipline('composites')}
+              className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6 hover:bg-steel-blue/30 hover:border-energy-green/40 transition-all duration-300 text-left cursor-pointer"
+            >
               <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
                 Composite Manufacturing & Testing
               </h3>
@@ -263,9 +361,13 @@ const JoinPage: React.FC = () => {
                 Carbon fiber layup, autoclave processing, composite tooling, mechanical testing
                 (tensile, burst, fatigue), material characterization.
               </p>
-            </div>
+              <p className="font-open-sans text-energy-green text-sm mt-3">Click to learn more →</p>
+            </button>
 
-            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+            <button
+              onClick={() => setSelectedDiscipline('controls')}
+              className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6 hover:bg-steel-blue/30 hover:border-energy-green/40 transition-all duration-300 text-left cursor-pointer"
+            >
               <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
                 Controls, SCADA & Manufacturing Systems
               </h3>
@@ -273,9 +375,13 @@ const JoinPage: React.FC = () => {
                 Factory automation, SCADA integration, production monitoring, data acquisition,
                 PLC programming, industrial networking.
               </p>
-            </div>
+              <p className="font-open-sans text-energy-green text-sm mt-3">Click to learn more →</p>
+            </button>
 
-            <div className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6">
+            <button
+              onClick={() => setSelectedDiscipline('systemsIntegration')}
+              className="bg-steel-blue/20 border border-energy-green/20 rounded-lg p-6 hover:bg-steel-blue/30 hover:border-energy-green/40 transition-all duration-300 text-left cursor-pointer"
+            >
               <h3 className="font-montserrat font-semibold text-xl text-industrial-white mb-3">
                 Systems Integration & Field Engineering
               </h3>
@@ -283,10 +389,61 @@ const JoinPage: React.FC = () => {
                 Site commissioning, grid interconnection, troubleshooting in the field, customer
                 support, system-level debugging, electrical safety.
               </p>
-            </div>
+              <p className="font-open-sans text-energy-green text-sm mt-3">Click to learn more →</p>
+            </button>
           </div>
         </div>
       </section>
+
+      {/* Modal */}
+      {selectedDiscipline && disciplineDetails[selectedDiscipline] && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-midnight-black/90 backdrop-blur-sm" onClick={() => setSelectedDiscipline(null)}>
+          <div className="bg-steel-blue/95 border-2 border-energy-green/50 rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            <div className="sticky top-0 bg-steel-blue border-b border-energy-green/30 px-8 py-6 flex justify-between items-start">
+              <h3 className="font-montserrat font-bold text-3xl text-industrial-white pr-8">
+                {disciplineDetails[selectedDiscipline].title}
+              </h3>
+              <button
+                onClick={() => setSelectedDiscipline(null)}
+                className="text-industrial-white hover:text-energy-green transition-colors flex-shrink-0"
+              >
+                <X className="h-8 w-8" />
+              </button>
+            </div>
+
+            <div className="px-8 py-6 space-y-8">
+              <div>
+                <h4 className="font-montserrat font-bold text-xl text-energy-green mb-4">
+                  What the Role Looks Like
+                </h4>
+                <p className="font-open-sans text-lg text-gray-200 leading-relaxed">
+                  {disciplineDetails[selectedDiscipline].roleDescription}
+                </p>
+              </div>
+
+              <div>
+                <h4 className="font-montserrat font-bold text-xl text-energy-green mb-4">
+                  Ideal Candidate Profile
+                </h4>
+                <ul className="space-y-3">
+                  {disciplineDetails[selectedDiscipline].idealCandidate.map((item, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="text-energy-green mr-3 mt-1 flex-shrink-0">•</span>
+                      <span className="font-open-sans text-lg text-gray-200 leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-6 border-t border-energy-green/30">
+                <p className="font-open-sans text-gray-300 text-center italic">
+                  If this sounds like you, submit your portfolio below. We screen on proof of work.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Application Form */}
       <section className="py-20 bg-gradient-to-b from-steel-blue/10 to-midnight-black">
