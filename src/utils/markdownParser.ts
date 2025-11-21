@@ -1,4 +1,3 @@
-import matter from 'gray-matter';
 import { marked } from 'marked';
 
 export interface PostFrontmatter {
@@ -24,14 +23,55 @@ function calculateReadTime(content: string): number {
   return Math.ceil(words / wordsPerMinute);
 }
 
+// Simple frontmatter parser (browser-compatible)
+function parseFrontmatter(markdown: string): { data: PostFrontmatter; content: string } {
+  const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+  const match = markdown.match(frontmatterRegex);
+
+  if (!match) {
+    throw new Error('Invalid frontmatter format');
+  }
+
+  const [, frontmatterText, content] = match;
+  const data: any = {};
+
+  // Parse YAML-like frontmatter
+  const lines = frontmatterText.split('\n');
+  for (const line of lines) {
+    const colonIndex = line.indexOf(':');
+    if (colonIndex === -1) continue;
+
+    const key = line.substring(0, colonIndex).trim();
+    let value = line.substring(colonIndex + 1).trim();
+
+    // Remove quotes
+    if ((value.startsWith('"') && value.endsWith('"')) ||
+        (value.startsWith("'") && value.endsWith("'"))) {
+      value = value.slice(1, -1);
+    }
+
+    // Parse arrays (tags)
+    if (value.startsWith('[') && value.endsWith(']')) {
+      data[key] = value
+        .slice(1, -1)
+        .split(',')
+        .map(v => v.trim().replace(/^["']|["']$/g, ''));
+    } else {
+      data[key] = value;
+    }
+  }
+
+  return { data: data as PostFrontmatter, content };
+}
+
 // Parse a single markdown file
 export async function parseMarkdown(markdownContent: string): Promise<Post> {
-  const { data, content } = matter(markdownContent);
+  const { data, content } = parseFrontmatter(markdownContent);
   const html = await marked(content);
   const readTime = calculateReadTime(content);
 
   return {
-    ...(data as PostFrontmatter),
+    ...data,
     content,
     html: typeof html === 'string' ? html : '',
     readTime,

@@ -37,7 +37,7 @@ const VisionSection: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-montserrat font-bold text-4xl md:text-5xl text-industrial-white mb-6">
-            If we succeed, the world looks like this
+            When we succeed, the world looks like this
           </h2>
           <div className="w-24 h-1 bg-energy-green mx-auto mb-6"></div>
         </div>
