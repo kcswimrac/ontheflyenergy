@@ -20,8 +20,8 @@ const WhyFlywheelsSection: React.FC = () => {
     },
     {
       icon: <TrendingUp className="h-10 w-10" />,
-      title: "Our wedge: 0–5 minutes",
-      description: "The volatility window where batteries degrade rapidly but flywheels thrive—unlimited cycles, no capacity loss"
+      title: "Our wedge: 0-5 minutes",
+      description: "The volatility window where batteries degrade rapidly but flywheels thrive - unlimited cycles, no capacity loss"
     }
   ];
 
@@ -69,8 +69,8 @@ const WhyFlywheelsSection: React.FC = () => {
         <div className="mt-16 text-center max-w-4xl mx-auto">
           <div className="bg-energy-green/10 border border-energy-green/30 rounded-lg p-8">
             <p className="font-open-sans text-xl text-industrial-white leading-relaxed">
-              On The Fly Energy targets the 0–5 minute volatility window that batteries alone are
-              poorly suited for—where cycle life, C-rates, and degradation make lithium uneconomical.
+              On The Fly Energy targets the 0-5 minute volatility window that batteries alone are
+              poorly suited for - where cycle life, C-rates, and degradation make lithium uneconomical.
               This is about system-level positioning, not replacing batteries, but complementing them.
             </p>
           </div>

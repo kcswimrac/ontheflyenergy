@@ -12,7 +12,10 @@ const InvestorsPage: React.FC = () => {
     setIsSubmitting(true);
     setResult('Sending...');
 
-    const formData = new FormData(event.currentTarget);
+    // Store form reference before async operation (event.currentTarget becomes null)
+    const form = event.currentTarget;
+
+    const formData = new FormData(form);
     formData.append('access_key', '71410425-89f6-4094-b387-361c001bdad0');
     formData.append('subject', 'Investor Inquiry from On The Fly Energy Website');
 
@@ -22,19 +25,24 @@ const InvestorsPage: React.FC = () => {
         body: formData
       });
 
-      const data = await response.json();
-      console.log('Web3Forms response:', data);
+      console.log('Web3Forms HTTP status:', response.status, response.ok);
 
-      // Check both data.success and HTTP status
-      if (data.success === true || response.ok) {
+      // If HTTP status is OK (200-299), treat as success
+      if (response.ok) {
         setResult('Form Submitted Successfully');
         setSubmitStatus('success');
-        event.currentTarget.reset();
+        form.reset();
         // Track successful form submission
         trackFormSubmission('investor_inquiry');
       } else {
-        console.log('Error', data);
-        setResult(data.message || 'Submission failed. Please try again.');
+        // Only parse error details if request failed
+        try {
+          const data = await response.json();
+          console.log('Error response:', data);
+          setResult(data.message || 'Submission failed. Please try again.');
+        } catch {
+          setResult('Submission failed. Please try again.');
+        }
         setSubmitStatus('error');
       }
     } catch (error) {
@@ -79,8 +87,8 @@ const InvestorsPage: React.FC = () => {
                   need fast frequency regulation and peak shaving.
                 </p>
                 <p>
-                  Lithium batteries are optimized for energy—hours and days of storage. But they
-                  degrade rapidly under high cycle counts and high C-rates. The 0–5 minute power
+                  Lithium batteries are optimized for energy - hours and days of storage. But they
+                  degrade rapidly under high cycle counts and high C-rates. The 0-5 minute power
                   volatility window is where batteries are least economical.
                 </p>
                 <p>
@@ -112,12 +120,12 @@ const InvestorsPage: React.FC = () => {
                 <ul className="list-disc list-inside space-y-2 ml-4">
                   <li>Deliver instant power response (milliseconds)</li>
                   <li>Handle 100,000+ cycles with zero capacity degradation</li>
-                  <li>Integrate at the grid edge—data centers, industrial sites, microgrids</li>
+                  <li>Integrate at the grid edge - data centers, industrial sites, microgrids</li>
                   <li>Protect batteries by absorbing high-frequency volatility</li>
                   <li>Improve economics of AI and industrial loads by reducing demand charges and stabilizing grid connections</li>
                 </ul>
                 <p>
-                  We are not competing with lithium. We are complementing it—solving the power
+                  We are not competing with lithium. We are complementing it - solving the power
                   problem so batteries can focus on energy.
                 </p>
               </div>
