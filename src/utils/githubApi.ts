@@ -63,6 +63,45 @@ async function getFileSha(path: string): Promise<string | null> {
   }
 }
 
+async function updatePostsManifest(newSlug: string): Promise<void> {
+  try {
+    const manifestPath = 'public/content/insights/posts-manifest.json';
+
+    // Get current manifest
+    let currentSlugs: string[] = [];
+    const manifestSha = await getFileSha(manifestPath);
+
+    if (manifestSha) {
+      const response = await githubRequest('GET', manifestPath);
+      if (response.ok) {
+        const data = await response.json();
+        const decoded = atob(data.content);
+        const manifest = JSON.parse(decoded);
+        currentSlugs = manifest.slugs || [];
+      }
+    }
+
+    // Add new slug if not already present
+    if (!currentSlugs.includes(newSlug)) {
+      currentSlugs.push(newSlug);
+      currentSlugs.sort(); // Keep alphabetically sorted
+    }
+
+    // Save updated manifest
+    const manifestContent = JSON.stringify({ slugs: currentSlugs }, null, 2);
+    const manifestBody = {
+      message: `Update posts manifest with ${newSlug}`,
+      content: btoa(unescape(encodeURIComponent(manifestContent))),
+      branch: GITHUB_BRANCH,
+      ...(manifestSha && { sha: manifestSha }),
+    };
+
+    await githubRequest('PUT', manifestPath, manifestBody);
+  } catch (error) {
+    console.error('Error updating posts manifest:', error);
+  }
+}
+
 export async function savePost({ slug, content, commitMessage }: SavePostParams): Promise<boolean> {
   try {
     const filePath = `public/content/insights/${slug}.md`;
@@ -90,6 +129,10 @@ export async function savePost({ slug, content, commitMessage }: SavePostParams)
       };
 
       await githubRequest('PUT', contentPath, contentBody);
+
+      // Update the posts manifest with the new slug
+      await updatePostsManifest(slug);
+
       return true;
     }
 

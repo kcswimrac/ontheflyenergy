@@ -78,25 +78,35 @@ export async function parseMarkdown(markdownContent: string): Promise<Post> {
   };
 }
 
-// Get all posts (this will be populated dynamically)
+// Get all posts (dynamically from manifest)
 export async function getAllPosts(): Promise<Post[]> {
-  // In a real implementation, this would dynamically import all markdown files
-  // For now, we'll use a static list that matches our content files
-  const slugs = [
-    'grid-not-built-for-ai',
-    'where-energy-storage-fails-today',
-    'why-kinetic-storage-belongs-in-the-stack',
-    'five-ai-power-spikes',
-    'why-we-are-building-our-own-inverter',
-    'where-electrical-phases-come-from',
-    'where-line-voltage-comes-from',
-  ];
+  try {
+    // Fetch the manifest file that lists all available posts
+    const manifestResponse = await fetch('/content/insights/posts-manifest.json');
 
-  const posts: Post[] = [];
+    let slugs: string[];
 
-  for (const slug of slugs) {
-    try {
-      const response = await fetch(`/content/insights/${slug}.md`);
+    if (manifestResponse.ok) {
+      const manifest = await manifestResponse.json();
+      slugs = manifest.slugs || [];
+    } else {
+      // Fallback to original hardcoded list if manifest doesn't exist yet
+      slugs = [
+        'grid-not-built-for-ai',
+        'where-energy-storage-fails-today',
+        'why-kinetic-storage-belongs-in-the-stack',
+        'five-ai-power-spikes',
+        'why-we-are-building-our-own-inverter',
+        'where-electrical-phases-come-from',
+        'where-line-voltage-comes-from',
+      ];
+    }
+
+    const posts: Post[] = [];
+
+    for (const slug of slugs) {
+      try {
+        const response = await fetch(`/content/insights/${slug}.md`);
       if (!response.ok) {
         console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
         continue;
@@ -109,8 +119,13 @@ export async function getAllPosts(): Promise<Post[]> {
     }
   }
 
-  // Sort by date (newest first)
-  return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    // Sort by date (newest first)
+    return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  } catch (error) {
+    console.error('Error loading posts manifest:', error);
+    // Return empty array if manifest loading fails completely
+    return [];
+  }
 }
 
 // Get a single post by slug
