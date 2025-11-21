@@ -22,19 +22,24 @@ const JoinPage: React.FC = () => {
         body: formData
       });
 
-      const data = await response.json();
-      console.log('Web3Forms response:', data);
+      console.log('Web3Forms HTTP status:', response.status, response.ok);
 
-      // Check both data.success and HTTP status
-      if (data.success === true || response.ok) {
+      // If HTTP status is OK (200-299), treat as success
+      if (response.ok) {
         setResult('Application Submitted Successfully');
         setSubmitStatus('success');
         event.currentTarget.reset();
         // Track successful form submission
         trackFormSubmission('talent_application');
       } else {
-        console.log('Error', data);
-        setResult(data.message || 'Submission failed. Please check all fields and try again.');
+        // Only parse error details if request failed
+        try {
+          const data = await response.json();
+          console.log('Error response:', data);
+          setResult(data.message || 'Submission failed. Please check all fields and try again.');
+        } catch {
+          setResult('Submission failed. Please try again.');
+        }
         setSubmitStatus('error');
       }
     } catch (error) {

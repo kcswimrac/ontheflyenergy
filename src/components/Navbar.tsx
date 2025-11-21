@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3 group">
             <img
-              src="/logo.webp"
+              src="/logo.png"
               alt="On The Fly Energy"
               className="h-10 w-auto transition-transform group-hover:scale-105"
             />
