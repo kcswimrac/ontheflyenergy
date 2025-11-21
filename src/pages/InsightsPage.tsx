@@ -35,7 +35,7 @@ const InsightsPage: React.FC = () => {
           <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-industrial-white mb-8 leading-tight">
             Insights
           </h1>
-          <p className="font-open-sans text-xl md:text-2xl text-gray-300 max-w-4xl leading-relaxed">
+          <p className="font-open-sans text-xl md:text-2xl text-gray-100 max-w-4xl leading-relaxed">
             Technical deep dives on grid physics, power systems, and the energy storage architecture
             that AI and electrification demand. Written for engineers and investors who want to
             understand the system-level problems we're solving.
@@ -119,7 +119,7 @@ const InsightsPage: React.FC = () => {
                     <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3 group-hover:text-energy-green transition-colors">
                       {post.title}
                     </h3>
-                    <p className="font-open-sans text-gray-300 text-sm leading-relaxed mb-4">
+                    <p className="font-open-sans text-gray-100 text-sm leading-relaxed mb-4">
                       {post.summary}
                     </p>
 

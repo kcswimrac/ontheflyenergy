@@ -158,7 +158,7 @@ const VoltageConfigDiagram: React.FC = () => {
               className={`px-4 py-2 rounded-lg font-montserrat text-sm transition-all duration-300 ${
                 selectedConfig === cfg.name
                   ? 'bg-energy-green text-midnight-black'
-                  : 'bg-midnight-black text-gray-300 hover:bg-steel-blue/50 border border-energy-green/20'
+                  : 'bg-midnight-black text-gray-100 hover:bg-steel-blue/50 border border-energy-green/20'
               }`}
             >
               {cfg.name}
@@ -169,7 +169,7 @@ const VoltageConfigDiagram: React.FC = () => {
 
       {/* Description */}
       <div className="mb-6 p-4 bg-midnight-black/50 rounded-lg border border-energy-green/10">
-        <p className="font-open-sans text-gray-300 leading-relaxed">{config.description}</p>
+        <p className="font-open-sans text-gray-100 leading-relaxed">{config.description}</p>
       </div>
 
       {/* Instruction */}
@@ -276,7 +276,7 @@ const VoltageConfigDiagram: React.FC = () => {
         <p className="font-montserrat font-semibold text-sm text-industrial-white mb-3">
           Legend:
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm font-open-sans text-gray-300">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 text-sm font-open-sans text-gray-100">
           <div className="flex items-center gap-2">
             <div className="w-4 h-4 rounded-full bg-energy-green border-2 border-energy-green"></div>
             <span>Selected Node</span>

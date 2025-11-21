@@ -124,14 +124,14 @@ const InsightPostPage: React.FC = () => {
               prose-headings:font-montserrat prose-headings:font-bold prose-headings:text-industrial-white
               prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-6 prose-h2:text-energy-green
               prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-4
-              prose-p:font-open-sans prose-p:text-gray-300 prose-p:leading-relaxed prose-p:mb-6
-              prose-ul:font-open-sans prose-ul:text-gray-300 prose-ul:my-6
-              prose-li:my-2 prose-li:leading-relaxed
+              prose-p:font-open-sans prose-p:text-gray-100 prose-p:leading-relaxed prose-p:mb-6
+              prose-ul:font-open-sans prose-ul:text-gray-100 prose-ul:my-6
+              prose-li:my-2 prose-li:leading-relaxed prose-li:text-gray-100
               prose-strong:text-industrial-white prose-strong:font-semibold
               prose-code:text-energy-green prose-code:bg-steel-blue/30 prose-code:px-2 prose-code:py-1 prose-code:rounded
               prose-pre:bg-steel-blue/30 prose-pre:border prose-pre:border-energy-green/20
               prose-a:text-energy-green prose-a:no-underline hover:prose-a:underline
-              prose-blockquote:border-l-4 prose-blockquote:border-energy-green prose-blockquote:pl-6 prose-blockquote:italic"
+              prose-blockquote:border-l-4 prose-blockquote:border-energy-green prose-blockquote:pl-6 prose-blockquote:italic prose-blockquote:text-gray-100"
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
         </div>
