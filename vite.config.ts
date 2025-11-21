@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   // base: '/on-the-fly-energy-landing/',
+  assetsInclude: ['**/*.PNG', '**/*.JPG', '**/*.JPEG'],
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
