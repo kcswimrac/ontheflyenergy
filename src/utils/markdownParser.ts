@@ -25,15 +25,15 @@ function calculateReadTime(content: string): number {
 }
 
 // Parse a single markdown file
-export function parseMarkdown(markdownContent: string): Post {
+export async function parseMarkdown(markdownContent: string): Promise<Post> {
   const { data, content } = matter(markdownContent);
-  const html = marked(content);
+  const html = await marked(content);
   const readTime = calculateReadTime(content);
 
   return {
     ...(data as PostFrontmatter),
     content,
-    html,
+    html: typeof html === 'string' ? html : '',
     readTime,
   };
 }
@@ -57,8 +57,12 @@ export async function getAllPosts(): Promise<Post[]> {
   for (const slug of slugs) {
     try {
       const response = await fetch(`/content/insights/${slug}.md`);
+      if (!response.ok) {
+        console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
+        continue;
+      }
       const markdown = await response.text();
-      const post = parseMarkdown(markdown);
+      const post = await parseMarkdown(markdown);
       posts.push(post);
     } catch (error) {
       console.error(`Error loading post ${slug}:`, error);
@@ -73,9 +77,12 @@ export async function getAllPosts(): Promise<Post[]> {
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
     const response = await fetch(`/content/insights/${slug}.md`);
-    if (!response.ok) return null;
+    if (!response.ok) {
+      console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
+      return null;
+    }
     const markdown = await response.text();
-    return parseMarkdown(markdown);
+    return await parseMarkdown(markdown);
   } catch (error) {
     console.error(`Error loading post ${slug}:`, error);
     return null;
