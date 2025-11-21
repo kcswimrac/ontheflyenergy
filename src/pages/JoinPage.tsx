@@ -22,8 +22,10 @@ const JoinPage: React.FC = () => {
       });
 
       const data = await response.json();
+      console.log('Web3Forms response:', data);
 
-      if (data.success) {
+      // Check both data.success and HTTP status
+      if (data.success === true || response.ok) {
         setResult('Application Submitted Successfully');
         setSubmitStatus('success');
         event.currentTarget.reset();

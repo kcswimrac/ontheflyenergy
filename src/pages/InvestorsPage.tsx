@@ -22,19 +22,22 @@ const InvestorsPage: React.FC = () => {
       });
 
       const data = await response.json();
+      console.log('Web3Forms response:', data);
 
-      if (data.success) {
+      // Check both data.success and HTTP status
+      if (data.success === true || response.ok) {
         setResult('Form Submitted Successfully');
         setSubmitStatus('success');
         event.currentTarget.reset();
       } else {
         console.log('Error', data);
-        setResult(data.message);
+        setResult(data.message || 'Submission failed. Please try again.');
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setResult('An error occurred. Please try again.');
+      setResult('Network error. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
