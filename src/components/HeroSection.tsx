@@ -74,7 +74,7 @@ const HeroSection = () => {
           <h2 className="font-montserrat font-bold text-4xl md:text-6xl lg:text-7xl text-industrial-white mb-6 leading-tight">
             AI is breaking the grid.
           </h2>
-          <h2 className="font-montserrat font-bold text-4xl md:text-6xl lg:text-7xl text-energy-green mb-8 leading-tight">
+          <h2 className="font-montserrat font-bold text-3xl md:text-5xl lg:text-6xl text-energy-green mb-8 leading-tight whitespace-nowrap">
             Lithium alone cannot keep up.
           </h2>
         </div>
