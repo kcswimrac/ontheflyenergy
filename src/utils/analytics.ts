@@ -14,7 +14,7 @@ declare global {
 // Track page views
 export const trackPageView = (url: string) => {
   if (typeof window.gtag !== 'undefined') {
-    window.gtag('config', 'G-XXXXXXXXXX', {
+    window.gtag('config', 'G-HLRMR8B025', {
       page_path: url,
     });
   }
