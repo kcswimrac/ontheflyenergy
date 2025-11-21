@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Code, Wrench, Zap, AlertCircle, Send } from 'lucide-react';
+import { Code, Wrench, Zap, Send, Users, Target } from 'lucide-react';
 
 const JoinPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -50,7 +50,7 @@ const JoinPage: React.FC = () => {
             We hire people who build first and talk second.
           </h1>
           <p className="font-open-sans text-2xl text-gray-300 max-w-4xl leading-relaxed">
-            No resumes. No buzzwords. No passengers.
+            Proof of work. Not resumes.
           </p>
           <div className="w-24 h-1 bg-energy-green mt-8"></div>
         </div>
@@ -60,23 +60,23 @@ const JoinPage: React.FC = () => {
       <section className="py-20 bg-midnight-black">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
           <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-8">
-            Our Hiring Philosophy
+            How We Screen
           </h2>
 
           <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
             <p>
-              We do not screen candidates using resumes. We screen candidates exclusively on
-              <strong className="text-industrial-white"> evidence of real work</strong>: CAD models,
-              code repositories, hardware prototypes, simulations, experiments, test rigs, and
-              project writeups.
+              We screen candidates on evidence of real work: code repositories, CAD models, hardware
+              prototypes, simulations, project writeups, build logs, test data. Resumes are collected
+              later in the interview process for administrative purposes only.
             </p>
             <p>
-              Proof of work is the only currency that matters here. Resumes are collected later in
-              the process for administrative and record-keeping purposes, not as a filter.
+              We expect people to move quickly, think clearly, and build real things. AI and automation
+              are welcome. Efficiency and execution matter more than tradition. If you used Claude or
+              GPT to accelerate your work, good. What matters is the output and whether it works.
             </p>
             <p>
-              If you cannot point to something you built—something that exists in the physical or
-              digital world—we have nothing to discuss.
+              Submit your portfolio or project link. That is how we screen. If you cannot point to
+              something you built, we have nothing to discuss.
             </p>
           </div>
         </div>
@@ -97,13 +97,10 @@ const JoinPage: React.FC = () => {
               <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-4">
                 Digital Artifacts
               </h3>
-              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
-                <li>GitHub or GitLab repositories</li>
-                <li>Control algorithms and firmware</li>
-                <li>Simulation models (FEA, CFD, SPICE)</li>
-                <li>CAD assemblies and drawings</li>
-                <li>PCB layouts and schematics</li>
-              </ul>
+              <p className="font-open-sans text-gray-300 leading-relaxed">
+                GitHub repos, CAD assemblies, simulations (FEA, CFD, SPICE), PCB layouts,
+                control algorithms, firmware.
+              </p>
             </div>
 
             <div className="bg-midnight-black/40 border border-energy-green/20 rounded-lg p-8">
@@ -113,13 +110,10 @@ const JoinPage: React.FC = () => {
               <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-4">
                 Physical Builds
               </h3>
-              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
-                <li>Mechanical prototypes and test rigs</li>
-                <li>Custom fabricated parts</li>
-                <li>Power electronics hardware</li>
-                <li>Manufacturing fixtures and tooling</li>
-                <li>Experimental setups with data</li>
-              </ul>
+              <p className="font-open-sans text-gray-300 leading-relaxed">
+                Mechanical prototypes, test rigs, fabricated parts, power electronics hardware,
+                manufacturing fixtures, experimental setups.
+              </p>
             </div>
 
             <div className="bg-midnight-black/40 border border-energy-green/20 rounded-lg p-8">
@@ -127,93 +121,68 @@ const JoinPage: React.FC = () => {
                 <Zap className="h-10 w-10" />
               </div>
               <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-4">
-                Technical Writeups
+                Technical Documentation
               </h3>
-              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
-                <li>Portfolio sites with build logs</li>
-                <li>Technical blog posts with depth</li>
-                <li>Experiment documentation</li>
-                <li>Video walkthroughs of projects</li>
-                <li>Analysis and failure reports</li>
-              </ul>
+              <p className="font-open-sans text-gray-300 leading-relaxed">
+                Portfolio sites, build logs, technical writeups, experiment documentation,
+                video walkthroughs, analysis reports.
+              </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* The Environment */}
+      {/* The On The Fly Way */}
       <section className="py-20 bg-midnight-black">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-8">
-            The Environment
-          </h2>
-
-          <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
-            <p>
-              Working here means rapidly turning ideas into evidence. You will operate with autonomy,
-              interface directly with machines and materials, and deliver physical or digital proof.
-            </p>
-            <p>
-              The culture is built for people who build first and talk second. High-agency engineers
-              who move from concept to prototype in weeks, not quarters. People who debug in hardware,
-              not PowerPoint.
-            </p>
-            <p>
-              No spectators. No passengers. If you need consensus to start, you will not survive here.
-            </p>
-          </div>
-
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-steel-blue/20 border-l-4 border-energy-green rounded-lg p-6">
-              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3">
-                What You Will Do
-              </h3>
-              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
-                <li>Design and build mechanical systems</li>
-                <li>Write control firmware and algorithms</li>
-                <li>Develop power electronics hardware</li>
-                <li>Run experiments and analyze data</li>
-                <li>Commission systems at customer sites</li>
-                <li>Solve problems nobody has solved before</li>
-              </ul>
+          <div className="flex items-start gap-6 mb-8">
+            <div className="flex-shrink-0 text-energy-green">
+              <Users className="h-10 w-10" />
             </div>
-
-            <div className="bg-steel-blue/20 border-l-4 border-energy-green rounded-lg p-6">
-              <h3 className="font-montserrat font-bold text-xl text-industrial-white mb-3">
-                What You Will Not Do
-              </h3>
-              <ul className="font-open-sans text-gray-300 space-y-2 list-disc list-inside">
-                <li>Attend planning meetings with no output</li>
-                <li>Write code that never touches hardware</li>
-                <li>Design systems you will never build</li>
-                <li>Wait for permission to start</li>
-                <li>Ship decks instead of prototypes</li>
-                <li>Spectate while others build</li>
-              </ul>
+            <div>
+              <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-6">
+                The On The Fly Way
+              </h2>
+              <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
+                <p>
+                  We think in systems and design things to last. We operate like a modern engineering
+                  company where AI and new tools are welcome. We care about clarity, craftsmanship,
+                  autonomy, and long-term impact.
+                </p>
+                <p>
+                  We build what matters, leave things better than we found them, and share what we learn.
+                </p>
+                <p className="text-gray-400 italic">
+                  The full culture playbook is shared during the hiring process.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why This Matters to Investors */}
-      <section className="py-20 bg-gradient-to-b from-steel-blue/10 to-midnight-black">
+      {/* Partner Buy-In Equity Program */}
+      <section className="py-20 bg-steel-blue/10">
         <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12">
-          <div className="bg-energy-green/10 border border-energy-green/30 rounded-lg p-8">
-            <div className="flex items-start gap-6">
-              <div className="flex-shrink-0 text-energy-green">
-                <AlertCircle className="h-10 w-10" />
-              </div>
-              <div>
-                <h2 className="font-montserrat font-bold text-2xl text-industrial-white mb-4">
-                  Why Investors Care About This
-                </h2>
-                <p className="font-open-sans text-lg text-gray-300 leading-relaxed">
-                  This proof-of-work hiring model is a core competitive advantage. It produces
-                  founder-caliber builders who move from concept to prototype in weeks, not months.
-                  While incumbents are stuck in design reviews, we ship working hardware. The talent
-                  density this creates is what allows us to outpace companies 10x our size. Speed is
-                  not a culture value—it is a structural outcome of hiring people who build without
-                  being asked.
+          <div className="flex items-start gap-6 mb-8">
+            <div className="flex-shrink-0 text-energy-green">
+              <Target className="h-10 w-10" />
+            </div>
+            <div>
+              <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-6">
+                Partner Buy-In Equity Program
+              </h2>
+              <div className="space-y-6 font-open-sans text-lg text-gray-300 leading-relaxed">
+                <p>
+                  Full-time employees have the option to invest directly into the company and become
+                  real owners. This is not a standard stock option plan. It is a partner-level program
+                  for people committed to building the company.
+                </p>
+                <p>
+                  The intent is simple: we build owners, not spectators.
+                </p>
+                <p className="text-gray-400 italic">
+                  Eligibility and structure are explained during the hiring process.
                 </p>
               </div>
             </div>
@@ -228,8 +197,7 @@ const JoinPage: React.FC = () => {
             Disciplines We Need
           </h2>
           <p className="font-open-sans text-lg text-gray-300 text-center mb-12 max-w-3xl mx-auto">
-            Not all roles are open now. We hire when we find exceptional people, not when we have
-            headcount budget.
+            We hire when we find exceptional people, not when we have headcount budget.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -304,9 +272,9 @@ const JoinPage: React.FC = () => {
               Apply
             </h2>
             <p className="font-open-sans text-lg text-gray-300 leading-relaxed">
-              Screening is based entirely on the <strong className="text-industrial-white">portfolio
+              Initial screening is based entirely on the <strong className="text-industrial-white">portfolio
               or project link</strong> you provide below. Without proof of work, your application will
-              not be considered. Resumes are collected later for administrative purposes only.
+              not be considered.
             </p>
           </div>
 
@@ -351,16 +319,14 @@ const JoinPage: React.FC = () => {
                   className="w-full bg-midnight-black border border-gray-600 rounded-lg px-4 py-3 text-industrial-white focus:border-energy-green focus:outline-none transition-colors"
                 />
                 <p className="mt-2 font-open-sans text-sm text-gray-400 leading-relaxed">
-                  <strong className="text-energy-green">This is the most important field.</strong> Provide
-                  a link to: portfolio site, GitHub/GitLab repo, Google Drive or Dropbox with CAD files,
-                  project writeup, build log, YouTube walkthrough, or anything that shows what you have built.
-                  If you have multiple links, include them in the message field below.
+                  Link to: portfolio site, GitHub/GitLab repo, Google Drive with CAD files, project writeup,
+                  build log, video walkthrough, or anything showing what you have built.
                 </p>
               </div>
 
               <div>
                 <label htmlFor="background" className="block font-montserrat font-semibold text-industrial-white mb-2">
-                  Technical Background / Expertise *
+                  Technical Background *
                 </label>
                 <input
                   type="text"
@@ -421,12 +387,6 @@ const JoinPage: React.FC = () => {
               )}
             </div>
           </form>
-
-          <div className="mt-8 text-center">
-            <p className="font-open-sans text-sm text-gray-400">
-              No proof of work? Do not apply. Build something first, then come back.
-            </p>
-          </div>
         </div>
       </section>
     </div>
