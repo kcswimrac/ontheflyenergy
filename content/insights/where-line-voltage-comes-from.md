@@ -5,6 +5,7 @@ summary: "Why common voltages like 480 V, 208 V, 240 V, 120 V, and 277 V exist, 
 tags: ["power systems", "three-phase", "distribution", "transformers"]
 thumbnail: "/images/insights/line-voltage.jpg"
 slug: "where-line-voltage-comes-from"
+showInteractiveDiagram: true
 ---
 
 # Understanding Where North American Voltages Come From

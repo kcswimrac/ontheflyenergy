@@ -150,8 +150,8 @@ const InsightPostPage: React.FC = () => {
         </div>
       </article>
 
-      {/* Interactive Voltage Diagram (only for the voltage post) */}
-      {post.slug === 'where-line-voltage-comes-from' && (
+      {/* Interactive Voltage Diagram */}
+      {post.showInteractiveDiagram && (
         <section className="py-16 bg-steel-blue/10">
           <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
             <h2 className="font-montserrat font-bold text-3xl text-industrial-white mb-8 text-center">

@@ -8,6 +8,7 @@ export interface PostFrontmatter {
   thumbnail: string;
   slug: string;
   videoUrl?: string;
+  showInteractiveDiagram?: boolean;
 }
 
 export interface Post extends PostFrontmatter {
@@ -56,6 +57,9 @@ function parseFrontmatter(markdown: string): { data: PostFrontmatter; content: s
         .slice(1, -1)
         .split(',')
         .map(v => v.trim().replace(/^["']|["']$/g, ''));
+    } else if (value === 'true' || value === 'false') {
+      // Parse booleans
+      data[key] = value === 'true';
     } else {
       data[key] = value;
     }
