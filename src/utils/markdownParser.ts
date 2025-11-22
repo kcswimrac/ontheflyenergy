@@ -78,11 +78,11 @@ export async function parseMarkdown(markdownContent: string): Promise<Post> {
   };
 }
 
-// Get all posts (dynamically from manifest)
+// Get all posts (dynamically from API - no rebuild required!)
 export async function getAllPosts(): Promise<Post[]> {
   try {
-    // Fetch the manifest file that lists all available posts
-    const manifestResponse = await fetch('/content/insights/posts-manifest.json');
+    // Fetch the manifest from the API endpoint instead of static file
+    const manifestResponse = await fetch('/api/posts/manifest');
 
     let slugs: string[];
 
@@ -90,7 +90,8 @@ export async function getAllPosts(): Promise<Post[]> {
       const manifest = await manifestResponse.json();
       slugs = manifest.slugs || [];
     } else {
-      // Fallback to original hardcoded list if manifest doesn't exist yet
+      // Fallback to original hardcoded list if API fails
+      console.warn('API manifest fetch failed, using fallback list');
       slugs = [
         'grid-not-built-for-ai',
         'where-energy-storage-fails-today',
@@ -106,18 +107,19 @@ export async function getAllPosts(): Promise<Post[]> {
 
     for (const slug of slugs) {
       try {
-        const response = await fetch(`/content/insights/${slug}.md`);
-      if (!response.ok) {
-        console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
-        continue;
+        // Fetch from API endpoint instead of static file
+        const response = await fetch(`/api/posts/${slug}`);
+        if (!response.ok) {
+          console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
+          continue;
+        }
+        const data = await response.json();
+        const post = await parseMarkdown(data.markdown);
+        posts.push(post);
+      } catch (error) {
+        console.error(`Error loading post ${slug}:`, error);
       }
-      const markdown = await response.text();
-      const post = await parseMarkdown(markdown);
-      posts.push(post);
-    } catch (error) {
-      console.error(`Error loading post ${slug}:`, error);
     }
-  }
 
     // Sort by date (newest first)
     return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -128,16 +130,16 @@ export async function getAllPosts(): Promise<Post[]> {
   }
 }
 
-// Get a single post by slug
+// Get a single post by slug (from API - no rebuild required!)
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
-    const response = await fetch(`/content/insights/${slug}.md`);
+    const response = await fetch(`/api/posts/${slug}`);
     if (!response.ok) {
       console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
       return null;
     }
-    const markdown = await response.text();
-    return await parseMarkdown(markdown);
+    const data = await response.json();
+    return await parseMarkdown(data.markdown);
   } catch (error) {
     console.error(`Error loading post ${slug}:`, error);
     return null;
