@@ -37,6 +37,8 @@ This is why 480 V Wye produces 277 V to neutral and why 208 V Wye produces 120 V
 
 ## 480 V Wye: Why 480 Gives You 277
 
+![480V Wye Configuration](/images/insights/diagrams/480v-wye.svg)
+
 A 480 V Wye secondary uses three identical coils connected at a neutral point. Each coil is wound to produce **277 V**. Because the phases are 120 electrical degrees apart, the phase to phase voltage becomes:
 
 ```
@@ -56,6 +58,8 @@ Any L to N = 277 V
 
 ## 208 V Wye: Why 208 Gives You 120
 
+![208V Wye Configuration](/images/insights/diagrams/208v-wye.svg)
+
 208 V three phase uses the same geometry as 480 V Wye. Each coil is wound for **120 V**, and geometry produces the line voltage.
 
 ```
@@ -74,6 +78,8 @@ Any L to N = 120 V
 ---
 
 ## 240 V Split Phase: The Residential Workhorse
+
+![240V Split Phase Configuration](/images/insights/diagrams/240v-split-phase.svg)
 
 Most North American homes receive single phase power from a center-tapped transformer secondary.
 
@@ -95,6 +101,8 @@ L1 to L2 = 240 V
 
 ## 240 V Delta: No Neutral Unless You Add One
 
+![240V Delta Configuration](/images/insights/diagrams/240v-delta.svg)
+
 A classic 240 V delta uses three 240 V coils connected in a triangular loop.
 
 **Point to point:**
@@ -108,6 +116,8 @@ L3 to L1 = 240 V
 ---
 
 ## High Leg Delta (Wild Leg Delta)
+
+![High Leg Delta Configuration](/images/insights/diagrams/high-leg-delta.svg)
 
 A high leg delta is a 240 V delta where **one coil is center-tapped** to create a neutral.
 
@@ -125,6 +135,8 @@ L3 to L1 = 240 V
 ---
 
 ## Corner Grounded Delta
+
+![Corner Grounded Delta Configuration](/images/insights/diagrams/corner-grounded-delta.svg)
 
 Any one corner of a delta system can be grounded.
 
