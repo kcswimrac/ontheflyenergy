@@ -1,0 +1,27 @@
+<svg width="300" height="250" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="250" fill="#0D0D0D"/>
+
+  <!-- Connections -->
+  <line x1="70" y1="125" x2="230" y2="125" stroke="#2C3E50" stroke-width="3"/>
+
+  <!-- Neutral connections (dashed) -->
+  <line x1="150" y1="125" x2="150" y2="190" stroke="#2C3E50" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- Nodes -->
+  <circle cx="70" cy="125" r="20" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="70" y="130" text-anchor="middle" fill="#F5F5F5" font-size="14" font-weight="bold">L1</text>
+
+  <circle cx="230" cy="125" r="20" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="230" y="130" text-anchor="middle" fill="#F5F5F5" font-size="14" font-weight="bold">L2</text>
+
+  <circle cx="150" cy="125" r="20" fill="#2C3E50" stroke="#27AE60" stroke-width="2"/>
+  <text x="150" y="130" text-anchor="middle" fill="#F5F5F5" font-size="14" font-weight="bold">N</text>
+  <text x="150" y="150" text-anchor="middle" fill="#27AE60" font-size="10">(Center Tap)</text>
+  <text x="150" y="210" text-anchor="middle" fill="#27AE60" font-size="12">⏚</text>
+
+  <!-- Voltage labels -->
+  <text x="110" y="110" text-anchor="middle" fill="#27AE60" font-size="11" font-weight="bold">120V</text>
+  <text x="190" y="110" text-anchor="middle" fill="#27AE60" font-size="11" font-weight="bold">120V</text>
+  <text x="150" y="90" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">240V</text>
+</svg>

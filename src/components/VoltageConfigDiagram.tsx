@@ -84,10 +84,10 @@ const configs: VoltageConfig[] = [
   {
     name: 'High Leg Delta',
     nodes: [
-      { id: 'L1', label: 'L1', x: 150, y: 80 },
-      { id: 'L2', label: 'L2', x: 70, y: 200 },
-      { id: 'L3', label: 'L3 (High)', x: 230, y: 200, isWildLeg: true },
-      { id: 'N', label: 'N', x: 110, y: 140, isGround: true },
+      { id: 'L1', label: 'L1', x: 70, y: 200 },
+      { id: 'L2', label: 'L2', x: 230, y: 200 },
+      { id: 'L3', label: 'L3 (High)', x: 150, y: 80, isWildLeg: true },
+      { id: 'N', label: 'N', x: 150, y: 200, isGround: true },
     ],
     voltages: {
       'L1-L2': { value: 240 },

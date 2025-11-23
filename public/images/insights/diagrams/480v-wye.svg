@@ -1,0 +1,38 @@
+<svg width="300" height="250" viewBox="0 0 300 250" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="250" fill="#0D0D0D"/>
+
+  <!-- Connections -->
+  <line x1="150" y1="80" x2="50" y2="200" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="150" y1="80" x2="250" y2="200" stroke="#2C3E50" stroke-width="2"/>
+  <line x1="50" y1="200" x2="250" y2="200" stroke="#2C3E50" stroke-width="2"/>
+
+  <!-- Neutral connections (dashed) -->
+  <line x1="150" y1="80" x2="150" y2="170" stroke="#2C3E50" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="50" y1="200" x2="150" y2="170" stroke="#2C3E50" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="250" y1="200" x2="150" y2="170" stroke="#2C3E50" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- Nodes -->
+  <circle cx="150" cy="80" r="20" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="150" y="85" text-anchor="middle" fill="#F5F5F5" font-size="14" font-weight="bold">L1</text>
+
+  <circle cx="50" cy="200" r="20" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="50" y="205" text-anchor="middle" fill="#F5F5F5" font-size="14" font-weight="bold">L2</text>
+
+  <circle cx="250" cy="200" r="20" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="250" y="205" text-anchor="middle" fill="#F5F5F5" font-size="14" font-weight="bold">L3</text>
+
+  <circle cx="150" cy="170" r="20" fill="#2C3E50" stroke="#27AE60" stroke-width="2"/>
+  <text x="150" y="175" text-anchor="middle" fill="#F5F5F5" font-size="14" font-weight="bold">N</text>
+  <text x="150" y="195" text-anchor="middle" fill="#27AE60" font-size="12">⏚</text>
+
+  <!-- Voltage labels - Line to Neutral (277V) -->
+  <text x="165" y="125" text-anchor="middle" fill="#27AE60" font-size="11" font-weight="bold">277V</text>
+  <text x="95" y="185" text-anchor="middle" fill="#27AE60" font-size="11" font-weight="bold">277V</text>
+  <text x="205" y="185" text-anchor="middle" fill="#27AE60" font-size="11" font-weight="bold">277V</text>
+
+  <!-- Voltage labels - Line to Line (480V) -->
+  <text x="85" y="130" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">480V</text>
+  <text x="150" y="215" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">480V</text>
+  <text x="215" y="130" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">480V</text>
+</svg>
