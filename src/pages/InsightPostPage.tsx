@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Calendar, Edit2 } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Edit2, EyeOff } from 'lucide-react';
 import { getPostBySlug, Post } from '../utils/markdownParser';
 import VoltageConfigDiagram from '../components/VoltageConfigDiagram';
 import { useAuth } from '../contexts/AuthContext';
@@ -72,6 +72,21 @@ const InsightPostPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Draft Banner - Only visible to authenticated users */}
+      {isAuthenticated && post.published === false && (
+        <div className="bg-amber-500/20 border-b border-amber-400/50">
+          <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 py-4">
+            <div className="flex items-center gap-3">
+              <EyeOff className="h-5 w-5 text-amber-400" />
+              <div>
+                <p className="font-montserrat font-semibold text-amber-400">Draft Post</p>
+                <p className="font-open-sans text-sm text-amber-300">This post is not published and is only visible to administrators.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-b from-steel-blue/20 to-midnight-black">

@@ -9,6 +9,7 @@ export interface PostFrontmatter {
   slug: string;
   videoUrl?: string;
   showInteractiveDiagram?: boolean;
+  published?: boolean;
 }
 
 export interface Post extends PostFrontmatter {
@@ -83,7 +84,7 @@ export async function parseMarkdown(markdownContent: string): Promise<Post> {
 }
 
 // Get all posts (dynamically from manifest)
-export async function getAllPosts(): Promise<Post[]> {
+export async function getAllPosts(includeUnpublished = false): Promise<Post[]> {
   try {
     // Fetch the manifest file that lists all available posts
     const manifestResponse = await fetch('/content/insights/posts-manifest.json');
@@ -117,7 +118,13 @@ export async function getAllPosts(): Promise<Post[]> {
       }
       const markdown = await response.text();
       const post = await parseMarkdown(markdown);
-      posts.push(post);
+
+      // Filter unpublished posts unless includeUnpublished is true
+      // Default published to true if not specified for backward compatibility
+      const isPublished = post.published !== false;
+      if (includeUnpublished || isPublished) {
+        posts.push(post);
+      }
     } catch (error) {
       console.error(`Error loading post ${slug}:`, error);
     }

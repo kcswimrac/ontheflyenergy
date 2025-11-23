@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Clock, Tag as TagIcon } from 'lucide-react';
+import { Clock, Tag as TagIcon, EyeOff } from 'lucide-react';
 import { getAllPosts, getAllTags, Post } from '../utils/markdownParser';
+import { useAuth } from '../contexts/AuthContext';
 
 const InsightsPage: React.FC = () => {
+  const { isAuthenticated } = useAuth();
   const [posts, setPosts] = useState<Post[]>([]);
   const [allTags, setAllTags] = useState<string[]>([]);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
@@ -13,7 +15,7 @@ const InsightsPage: React.FC = () => {
     const loadContent = async () => {
       setLoading(true);
       const [postsData, tagsData] = await Promise.all([
-        getAllPosts(),
+        getAllPosts(isAuthenticated), // Show unpublished posts if authenticated
         getAllTags(),
       ]);
       setPosts(postsData);
@@ -21,7 +23,7 @@ const InsightsPage: React.FC = () => {
       setLoading(false);
     };
     loadContent();
-  }, []);
+  }, [isAuthenticated]);
 
   const filteredPosts = selectedTag
     ? posts.filter(post => post.tags.includes(selectedTag))
@@ -112,6 +114,14 @@ const InsightsPage: React.FC = () => {
                     ) : null}
                     {/* Gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-midnight-black/80 to-transparent"></div>
+
+                    {/* Draft badge - only visible to authenticated users */}
+                    {isAuthenticated && post.published === false && (
+                      <div className="absolute top-3 right-3 flex items-center gap-2 px-3 py-1.5 bg-amber-500/90 border border-amber-400 rounded-lg">
+                        <EyeOff className="h-4 w-4 text-midnight-black" />
+                        <span className="font-montserrat text-xs font-bold text-midnight-black">DRAFT</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Content */}

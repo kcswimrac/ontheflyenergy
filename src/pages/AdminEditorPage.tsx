@@ -19,6 +19,7 @@ const AdminEditorPage: React.FC = () => {
   const [thumbnail, setThumbnail] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
   const [showInteractiveDiagram, setShowInteractiveDiagram] = useState(false);
+  const [published, setPublished] = useState(true);
   const [content, setContent] = useState('');
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -45,6 +46,7 @@ const AdminEditorPage: React.FC = () => {
           setThumbnail(post.thumbnail);
           setVideoUrl(post.videoUrl || '');
           setShowInteractiveDiagram(post.showInteractiveDiagram || false);
+          setPublished(post.published !== false); // Default to true if not specified
           setContent(post.content);
         } else {
           setMessage({ type: 'error', text: 'Post not found' });
@@ -121,7 +123,7 @@ date: "${date}"
 summary: "${summary}"
 tags: [${tagsArray.map(tag => `"${tag}"`).join(', ')}]
 thumbnail: "${thumbnail}"
-slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}${showInteractiveDiagram ? `\nshowInteractiveDiagram: true` : ''}
+slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}${showInteractiveDiagram ? `\nshowInteractiveDiagram: true` : ''}${!published ? `\npublished: false` : ''}
 ---
 
 `;
@@ -364,6 +366,27 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}${showInteractiveDi
                       </span>
                       <p className="text-xs text-gray-400 font-open-sans mt-1">
                         Display the Interactive Configuration Explorer below post content.
+                      </p>
+                    </div>
+                  </label>
+                </div>
+
+                <div>
+                  <label className="flex items-center gap-3 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={published}
+                      onChange={(e) => setPublished(e.target.checked)}
+                      className="w-5 h-5 bg-midnight-black border border-energy-green/20 rounded text-energy-green focus:ring-energy-green focus:ring-offset-0 cursor-pointer"
+                    />
+                    <div>
+                      <span className="block font-montserrat text-sm font-medium text-gray-300">
+                        Published
+                      </span>
+                      <p className="text-xs text-gray-400 font-open-sans mt-1">
+                        {published
+                          ? 'Post is live and visible to all visitors.'
+                          : 'Post is hidden and only visible to admins (draft mode).'}
                       </p>
                     </div>
                   </label>
