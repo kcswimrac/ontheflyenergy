@@ -5,6 +5,7 @@ summary: "Three-phase power isn't a given of nature. It's the result of rotating
 tags: ["power systems", "three-phase", "grid"]
 thumbnail: "/images/insights/1763768865177-three-phase-power-is-geometry-11-08-2025.png"
 slug: "where-electrical-phases-come-from"
+published: false
 ---
 
 Three-phase power is one of the most elegant engineering solutions ever invented. A rotating magnetic field passing by three coils creates three voltages separated by 120 degrees. That geometry is the reason motors start smoothly, generators stay stable, and power flows efficiently.
