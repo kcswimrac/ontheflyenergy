@@ -15,6 +15,7 @@ const AdminEditorPage: React.FC = () => {
   const [slug, setSlug] = useState('');
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [summary, setSummary] = useState('');
+  const [author, setAuthor] = useState('Kris Canete');
   const [tags, setTags] = useState('');
   const [thumbnail, setThumbnail] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
@@ -42,6 +43,7 @@ const AdminEditorPage: React.FC = () => {
           setSlug(post.slug);
           setDate(post.date);
           setSummary(post.summary);
+          setAuthor(post.author || 'Kris Canete');
           setTags(post.tags.join(', '));
           setThumbnail(post.thumbnail);
           setVideoUrl(post.videoUrl || '');
@@ -123,7 +125,8 @@ date: "${date}"
 summary: "${summary}"
 tags: [${tagsArray.map(tag => `"${tag}"`).join(', ')}]
 thumbnail: "${thumbnail}"
-slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}${showInteractiveDiagram ? `\nshowInteractiveDiagram: true` : ''}${!published ? `\npublished: false` : ''}
+slug: "${slug}"
+author: "${author}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}${showInteractiveDiagram ? `\nshowInteractiveDiagram: true` : ''}${!published ? `\npublished: false` : ''}
 ---
 
 `;
@@ -286,6 +289,22 @@ slug: "${slug}"${videoUrl ? `\nvideoUrl: "${videoUrl}"` : ''}${showInteractiveDi
                   />
                   <p className="mt-1 text-xs text-gray-400 font-open-sans">
                     Short description shown on the Insights landing page cards.
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block font-montserrat text-sm font-medium text-gray-300 mb-2">
+                    Author
+                  </label>
+                  <input
+                    type="text"
+                    value={author}
+                    onChange={(e) => setAuthor(e.target.value)}
+                    className="w-full px-4 py-2 bg-midnight-black border border-energy-green/20 rounded-lg text-industrial-white font-open-sans focus:outline-none focus:border-energy-green transition-colors"
+                    placeholder="Kris Canete"
+                  />
+                  <p className="mt-1 text-xs text-gray-400 font-open-sans">
+                    Author name displayed on the post.
                   </p>
                 </div>
 

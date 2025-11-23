@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, Calendar, Edit2, EyeOff } from 'lucide-react';
+import { ArrowLeft, Clock, Calendar, Edit2, EyeOff, User } from 'lucide-react';
 import { getPostBySlug, Post } from '../utils/markdownParser';
 import VoltageConfigDiagram from '../components/VoltageConfigDiagram';
 import { useAuth } from '../contexts/AuthContext';
@@ -97,6 +97,12 @@ const InsightPostPage: React.FC = () => {
 
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-6 text-gray-300 mb-8">
+            {post.author && (
+              <div className="flex items-center gap-2">
+                <User className="h-5 w-5 text-energy-green" />
+                <span className="font-open-sans">{post.author}</span>
+              </div>
+            )}
             <div className="flex items-center gap-2">
               <Calendar className="h-5 w-5 text-energy-green" />
               <span className="font-open-sans">
