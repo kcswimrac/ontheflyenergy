@@ -54,6 +54,26 @@ L3 to L1 = 480 V
 Any L to N = 277 V
 ```
 
+**Common Uses:**
+- Large industrial facilities and manufacturing plants
+- Commercial buildings with significant HVAC loads
+- Data centers requiring high-density power distribution
+- Large motors (100+ HP) and industrial equipment
+- High-bay lighting in warehouses and factories
+
+**Pros:**
+- Efficient for large motor loads (reduces current, smaller wire sizes)
+- 277V lighting is standard and efficient for commercial spaces
+- Can serve both three-phase equipment (480V) and single-phase loads (277V)
+- Lower distribution losses due to higher voltage
+- Widely supported by industrial equipment
+
+**Cons:**
+- No 120V available without additional transformers
+- Higher voltage presents greater safety risks
+- Requires specialized equipment and qualified personnel
+- More expensive protective equipment and installation costs
+
 ---
 
 ## 208 V Wye: Why 208 Gives You 120
@@ -74,6 +94,26 @@ L2 to L3 = 208 V
 L3 to L1 = 208 V
 Any L to N = 120 V
 ```
+
+**Common Uses:**
+- Most common commercial building configuration in North America
+- Office buildings, retail spaces, and small commercial facilities
+- Restaurants and food service (ovens, ranges, HVAC)
+- Light industrial and workshop environments
+- Mixed-use buildings requiring both 120V outlets and 208V equipment
+
+**Pros:**
+- Provides standard 120V for outlets, computers, and small appliances
+- Three-phase 208V suitable for HVAC, small motors, and commercial cooking equipment
+- Excellent balance between power delivery and safety
+- Widely available equipment designed for these voltages
+- Single transformer serves all building loads
+
+**Cons:**
+- 208V not ideal for large motors (less efficient than 480V or 240V)
+- Some 240V residential equipment (dryers, ranges) runs at reduced capacity
+- Higher current draw than 480V systems for equivalent three-phase loads
+- Limited to buildings with moderate power requirements
 
 ---
 
@@ -97,6 +137,28 @@ L2 to Neutral = 120 V
 L1 to L2 = 240 V
 ```
 
+**Common Uses:**
+- Nearly all single-family residential homes in the United States
+- Townhouses, condos, and small apartments
+- Small outbuildings, garages, and workshops
+- RV parks and mobile home installations
+- Light commercial spaces under 200A service
+
+**Pros:**
+- Simple, proven, and inexpensive to install
+- 120V for standard outlets, lighting, and electronics
+- 240V for high-power appliances (ranges, dryers, water heaters, EV chargers)
+- Excellent equipment availability at consumer prices
+- Easy to troubleshoot and service
+- Balanced loads reduce neutral current
+
+**Cons:**
+- Single-phase only—cannot power three-phase equipment
+- Limited total capacity compared to three-phase systems
+- Voltage drop issues over long distances
+- Not suitable for large motor loads or industrial equipment
+- Requires larger conductors for equivalent three-phase power delivery
+
 ---
 
 ## 240 V Delta: No Neutral Unless You Add One
@@ -113,6 +175,27 @@ L2 to L3 = 240 V
 L3 to L1 = 240 V
 ```
 
+**Common Uses:**
+- Older industrial facilities and machine shops
+- Irrigation systems and agricultural pumping stations
+- Manufacturing plants with legacy three-phase equipment
+- Facilities where only motor loads are served (no 120V needed)
+- Often found in older buildings being replaced by other configurations
+
+**Pros:**
+- Higher line-to-line voltage than 208V for same conductor size
+- More efficient motor operation than 208V systems
+- No neutral current or imbalance issues
+- Simpler transformer configuration (no neutral point)
+- Reduced conductor costs (only three wires needed)
+
+**Cons:**
+- No neutral—cannot provide 120V without additional transformers
+- Less common in new installations (being replaced by other systems)
+- Not suitable for mixed loads requiring both power and lighting
+- Limited equipment availability compared to grounded systems
+- Safety concerns without a grounded reference point
+
 ---
 
 ## High Leg Delta (Wild Leg Delta)
@@ -126,11 +209,33 @@ A high leg delta is a 240 V delta where **one coil is center-tapped** to create 
 ```
 L1 to N = 120 V
 L2 to N = 120 V
-L3 to N = 208 V
+L3 to N = 208 V (High Leg - NEVER use for 120V loads)
 L1 to L2 = 240 V
 L2 to L3 = 240 V
 L3 to L1 = 240 V
 ```
+
+**Common Uses:**
+- Older commercial buildings (pre-1980s construction)
+- Rural facilities needing both 240V three-phase motors and 120V lighting
+- Farms and agricultural buildings with mixed loads
+- Small manufacturing shops with limited power requirements
+- Legacy installations—rarely installed in new construction
+
+**Pros:**
+- Provides 240V three-phase for motors and equipment
+- Also supplies 120V for lighting and receptacles from same transformer
+- More efficient than running separate single-phase and three-phase services
+- Cost-effective solution when both voltage levels are needed
+- Single transformer serves mixed loads
+
+**Cons:**
+- **Dangerous high leg (208V to neutral) easily confused with normal legs**
+- Requires careful labeling and phase identification (orange wire required by NEC)
+- Imbalanced loading common—neutral carries significant current
+- Cannot use all three phases for balanced 120V loads
+- Being phased out in favor of safer 208V Wye systems
+- High risk of equipment damage if high leg mistakenly used for 120V
 
 ---
 
@@ -147,6 +252,28 @@ Grounded leg = 0 V to ground
 Other legs = 240 V to ground
 All phase-to-phase = 240 V
 ```
+
+**Common Uses:**
+- Water treatment and pumping stations
+- Older industrial plants and manufacturing facilities
+- Marine and shipyard applications
+- Underground mining operations
+- Legacy three-phase systems where equipment grounding is critical
+
+**Pros:**
+- Provides a solid ground reference for safety and fault detection
+- Continues operation during single ground fault on ungrounded phase
+- Simple fault current path for protective devices
+- Effective for systems with significant capacitive coupling to ground
+- Useful in environments with high ground fault risk
+
+**Cons:**
+- One phase at ground potential creates unequal voltage exposure risk
+- Line-to-ground fault on ungrounded phases produces full line voltage
+- Difficult to detect first ground fault (system continues operating)
+- Second ground fault becomes phase-to-phase fault with high current
+- Largely replaced by modern grounding systems in new installations
+- Uncommon configuration—limited technician familiarity
 
 ---
 
