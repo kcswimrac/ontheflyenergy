@@ -8,6 +8,7 @@ export interface PostFrontmatter {
   tags: string[];
   thumbnail: string;
   slug: string;
+  author?: string;
   videoUrl?: string;
   showInteractiveDiagram?: boolean;
   published?: boolean;
