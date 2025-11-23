@@ -1,4 +1,5 @@
 import { marked } from 'marked';
+import { fetchMarkdownFromGitHub, fetchManifestFromGitHub, isGitHubModeEnabled } from './githubContentFetcher';
 
 export interface PostFrontmatter {
   title: string;
@@ -86,49 +87,72 @@ export async function parseMarkdown(markdownContent: string): Promise<Post> {
 // Get all posts (dynamically from manifest)
 export async function getAllPosts(includeUnpublished = false): Promise<Post[]> {
   try {
-    // Fetch the manifest file that lists all available posts
-    const manifestResponse = await fetch('/content/insights/posts-manifest.json');
-
     let slugs: string[];
 
-    if (manifestResponse.ok) {
-      const manifest = await manifestResponse.json();
-      slugs = manifest.slugs || [];
+    // Fetch manifest from GitHub if in GitHub mode, otherwise from static build
+    if (isGitHubModeEnabled()) {
+      const manifest = await fetchManifestFromGitHub();
+      if (manifest) {
+        slugs = manifest.slugs || [];
+      } else {
+        console.warn('Failed to fetch manifest from GitHub, using fallback');
+        slugs = [];
+      }
     } else {
-      // Fallback to original hardcoded list if manifest doesn't exist yet
-      slugs = [
-        'grid-not-built-for-ai',
-        'where-energy-storage-fails-today',
-        'why-kinetic-storage-belongs-in-the-stack',
-        'five-ai-power-spikes',
-        'why-we-are-building-our-own-inverter',
-        'where-electrical-phases-come-from',
-        'where-line-voltage-comes-from',
-      ];
+      // Fetch the manifest file from static build
+      const manifestResponse = await fetch('/content/insights/posts-manifest.json');
+
+      if (manifestResponse.ok) {
+        const manifest = await manifestResponse.json();
+        slugs = manifest.slugs || [];
+      } else {
+        // Fallback to original hardcoded list if manifest doesn't exist yet
+        slugs = [
+          'grid-not-built-for-ai',
+          'where-energy-storage-fails-today',
+          'why-kinetic-storage-belongs-in-the-stack',
+          'five-ai-power-spikes',
+          'why-we-are-building-our-own-inverter',
+          'where-electrical-phases-come-from',
+          'where-line-voltage-comes-from',
+        ];
+      }
     }
 
     const posts: Post[] = [];
 
     for (const slug of slugs) {
       try {
-        const response = await fetch(`/content/insights/${slug}.md`);
-      if (!response.ok) {
-        console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
-        continue;
-      }
-      const markdown = await response.text();
-      const post = await parseMarkdown(markdown);
+        let markdown: string | null;
 
-      // Filter unpublished posts unless includeUnpublished is true
-      // Default published to true if not specified for backward compatibility
-      const isPublished = post.published !== false;
-      if (includeUnpublished || isPublished) {
-        posts.push(post);
+        // Fetch from GitHub if in GitHub mode, otherwise from static build
+        if (isGitHubModeEnabled()) {
+          markdown = await fetchMarkdownFromGitHub(slug);
+          if (!markdown) {
+            console.error(`Failed to fetch ${slug} from GitHub`);
+            continue;
+          }
+        } else {
+          const response = await fetch(`/content/insights/${slug}.md`);
+          if (!response.ok) {
+            console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
+            continue;
+          }
+          markdown = await response.text();
+        }
+
+        const post = await parseMarkdown(markdown);
+
+        // Filter unpublished posts unless includeUnpublished is true
+        // Default published to true if not specified for backward compatibility
+        const isPublished = post.published !== false;
+        if (includeUnpublished || isPublished) {
+          posts.push(post);
+        }
+      } catch (error) {
+        console.error(`Error loading post ${slug}:`, error);
       }
-    } catch (error) {
-      console.error(`Error loading post ${slug}:`, error);
     }
-  }
 
     // Sort by date (newest first)
     return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -142,12 +166,24 @@ export async function getAllPosts(includeUnpublished = false): Promise<Post[]> {
 // Get a single post by slug
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   try {
-    const response = await fetch(`/content/insights/${slug}.md`);
-    if (!response.ok) {
-      console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
-      return null;
+    let markdown: string | null;
+
+    // Fetch from GitHub if in GitHub mode, otherwise from static build
+    if (isGitHubModeEnabled()) {
+      markdown = await fetchMarkdownFromGitHub(slug);
+      if (!markdown) {
+        console.error(`Failed to fetch ${slug} from GitHub`);
+        return null;
+      }
+    } else {
+      const response = await fetch(`/content/insights/${slug}.md`);
+      if (!response.ok) {
+        console.error(`Failed to fetch ${slug}: ${response.status} ${response.statusText}`);
+        return null;
+      }
+      markdown = await response.text();
     }
-    const markdown = await response.text();
+
     return await parseMarkdown(markdown);
   } catch (error) {
     console.error(`Error loading post ${slug}:`, error);

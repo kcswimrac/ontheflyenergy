@@ -56,9 +56,9 @@ const configs: VoltageConfig[] = [
   {
     name: '240V Split Phase',
     nodes: [
-      { id: 'L1', label: 'L1', x: 100, y: 100 },
-      { id: 'L2', label: 'L2', x: 200, y: 100 },
-      { id: 'N', label: 'N', x: 150, y: 180, isGround: true },
+      { id: 'L1', label: 'L1', x: 70, y: 125 },
+      { id: 'L2', label: 'L2', x: 230, y: 125 },
+      { id: 'N', label: 'N', x: 150, y: 125, isGround: true },
     ],
     voltages: {
       'L1-L2': { value: 240 },
