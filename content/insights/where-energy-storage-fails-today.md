@@ -5,6 +5,8 @@ summary: "Lithium batteries excel at storing energy, but they struggle when used
 tags: ["storage", "bess", "lithium"]
 thumbnail: "/images/insights/storage-fails.jpg"
 slug: "where-energy-storage-fails-today"
+author: "Kris Canete"
+published: false
 ---
 
 Lithium batteries are engineered to store energy. That makes them powerful, flexible, and scalable—but it also means they're mismatched to the most violent parts of grid behavior.
