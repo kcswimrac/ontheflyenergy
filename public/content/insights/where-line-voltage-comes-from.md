@@ -3,7 +3,7 @@ title: "Where Line Voltage Actually Comes From"
 date: "2025-11-22"
 summary: "Why common voltages like 480 V, 208 V, 240 V, 120 V, and 277 V exist, and how transformer geometry determines every point-to-point voltage in a system."
 tags: ["power systems", "three-phase", "distribution", "transformers"]
-thumbnail: "/images/insights/Under_Standing_North_American_voltages.png"
+thumbnail: "/images/insights/1763926502488-Under_Standing_North_American_voltages.png"
 slug: "where-line-voltage-comes-from"
 author: "Kris Canete"
 showInteractiveDiagram: true
