@@ -1,12 +1,11 @@
 ---
 title: "Understanding Open-Delta (V) Transformer Systems"
-date: "2025-01-24"
+date: "2025-11-25"
 summary: "A deep dive into open-delta configurations: how two transformers deliver three-phase power, the 86.6% and 57.7% capacity rules, asymmetric loading patterns, and why utilities choose this topology for rural installations."
 tags: ["Three-Phase Power", "Transformers", "Grid Infrastructure", "Power Distribution"]
 thumbnail: "/images/insights/diagrams/open-delta-phasor.svg"
 slug: "understanding-open-delta-systems"
 author: "Kris Canete"
-published: true
 ---
 
 # Understanding Open-Delta (V) Transformer Systems
