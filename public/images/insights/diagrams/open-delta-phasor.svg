@@ -1,0 +1,70 @@
+<svg width="450" height="450" viewBox="0 0 450 450" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="450" height="450" fill="#0D0D0D"/>
+  
+  <!-- Title -->
+  <text x="225" y="25" text-anchor="middle" fill="#27AE60" font-size="14" font-weight="bold">Open-Delta Phasor Diagram</text>
+  
+  <!-- Center point -->
+  <circle cx="225" cy="225" r="3" fill="#27AE60"/>
+  
+  <!-- Voltage phasors (120 degrees apart) -->
+  <defs>
+    <marker id="vArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#27AE60"/>
+    </marker>
+    <marker id="vArrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FF6B6B"/>
+    </marker>
+    <marker id="iArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FFB84D"/>
+    </marker>
+  </defs>
+  
+  <!-- V12 (0 degrees - horizontal right) -->
+  <line x1="225" y1="225" x2="345" y2="225" stroke="#27AE60" stroke-width="3" marker-end="url(#vArrow)"/>
+  <text x="365" y="230" text-anchor="start" fill="#27AE60" font-size="12" font-weight="bold">V₁₂ (240V)</text>
+  <text x="365" y="245" text-anchor="start" fill="#27AE60" font-size="9">T1 voltage</text>
+  
+  <!-- V13 (120 degrees - upper left) -->
+  <line x1="225" y1="225" x2="165" y2="121" stroke="#27AE60" stroke-width="3" marker-end="url(#vArrow)"/>
+  <text x="140" y="115" text-anchor="end" fill="#27AE60" font-size="12" font-weight="bold">V₁₃ (240V)</text>
+  <text x="140" y="130" text-anchor="end" fill="#27AE60" font-size="9">T2 voltage</text>
+  
+  <!-- V23 (240 degrees - synthesized, dashed) -->
+  <line x1="225" y1="225" x2="165" y2="329" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#vArrowRed)"/>
+  <text x="140" y="340" text-anchor="end" fill="#FF6B6B" font-size="12" font-weight="bold">V₂₃ (240V)</text>
+  <text x="140" y="355" text-anchor="end" fill="#FF6B6B" font-size="9">Synthesized</text>
+  
+  <!-- Current phasors (asymmetric magnitudes) -->
+  <!-- I1 (heavy) -->
+  <line x1="225" y1="225" x2="305" y2="165" stroke="#FFB84D" stroke-width="4" marker-end="url(#iArrow)"/>
+  <text x="315" y="185" text-anchor="start" fill="#FFB84D" font-size="11" font-weight="bold">I₁</text>
+  
+  <!-- I2 (normal) -->
+  <line x1="225" y1="225" x2="195" y2="165" stroke="#FFB84D" stroke-width="2.5" marker-end="url(#iArrow)"/>
+  <text x="175" y="155" text-anchor="end" fill="#FFB84D" font-size="11" font-weight="bold">I₂</text>
+  
+  <!-- I3 -->
+  <line x1="225" y1="225" x2="225" y2="305" stroke="#FFB84D" stroke-width="3" marker-end="url(#iArrow)"/>
+  <text x="245" y="315" text-anchor="start" fill="#FFB84D" font-size="11" font-weight="bold">I₃</text>
+  
+  <!-- 120 degree angle markers -->
+  <path d="M 265 225 A 40 40 0 0 1 245 195" stroke="#2C3E50" stroke-width="1" fill="none"/>
+  <text x="270" y="210" text-anchor="start" fill="#2C3E50" font-size="9">120°</text>
+  
+  <path d="M 205 185 A 40 40 0 0 1 185 205" stroke="#2C3E50" stroke-width="1" fill="none"/>
+  <text x="175" y="195" text-anchor="end" fill="#2C3E50" font-size="9">120°</text>
+  
+  <!-- Legend box -->
+  <rect x="30" y="380" width="390" height="55" fill="#2C3E50" stroke="#27AE60" stroke-width="1" rx="5"/>
+  
+  <line x1="45" y1="395" x2="75" y2="395" stroke="#27AE60" stroke-width="3"/>
+  <text x="85" y="400" text-anchor="start" fill="#F5F5F5" font-size="10">Voltage phasors (from real transformers)</text>
+  
+  <line x1="45" y1="410" x2="75" y2="410" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="6,3"/>
+  <text x="85" y="415" text-anchor="start" fill="#F5F5F5" font-size="10">Synthesized voltage (vector sum)</text>
+  
+  <line x1="45" y1="425" x2="75" y2="425" stroke="#FFB84D" stroke-width="3"/>
+  <text x="85" y="430" text-anchor="start" fill="#F5F5F5" font-size="10">Line currents (asymmetric magnitudes)</text>
+</svg>

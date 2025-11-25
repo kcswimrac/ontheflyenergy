@@ -1,0 +1,75 @@
+<svg width="500" height="600" viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="500" height="600" fill="#0D0D0D"/>
+
+  <!-- Title -->
+  <text x="250" y="30" text-anchor="middle" fill="#27AE60" font-size="14" font-weight="bold">Open-Delta Utility Pole Installation</text>
+
+  <!-- Utility pole -->
+  <rect x="235" y="100" width="30" height="450" fill="#6B4423" stroke="#4A2F1A" stroke-width="2"/>
+
+  <!-- Crossarm -->
+  <rect x="150" y="180" width="200" height="15" fill="#6B4423" stroke="#4A2F1A" stroke-width="2"/>
+
+  <!-- Power lines (3 phases) -->
+  <line x1="0" y1="155" x2="500" y2="155" stroke="#F5F5F5" stroke-width="2"/>
+  <line x1="0" y1="187" x2="500" y2="187" stroke="#F5F5F5" stroke-width="2"/>
+  <line x1="0" y1="220" x2="500" y2="220" stroke="#F5F5F5" stroke-width="2"/>
+
+  <!-- Line labels -->
+  <text x="20" y="150" text-anchor="start" fill="#27AE60" font-size="11" font-weight="bold">L1</text>
+  <text x="20" y="182" text-anchor="start" fill="#27AE60" font-size="11" font-weight="bold">L2</text>
+  <text x="20" y="215" text-anchor="start" fill="#FF6B6B" font-size="11" font-weight="bold">L3</text>
+
+  <!-- Transformer 1 (between L1 and L2) -->
+  <rect x="180" y="230" width="60" height="80" fill="#2C3E50" stroke="#27AE60" stroke-width="3" rx="5"/>
+  <text x="210" y="265" text-anchor="middle" fill="#27AE60" font-size="16" font-weight="bold">T1</text>
+  <text x="210" y="285" text-anchor="middle" fill="#F5F5F5" font-size="10">25 kVA</text>
+  <text x="210" y="300" text-anchor="middle" fill="#F5F5F5" font-size="9">7200V-240V</text>
+
+  <!-- Bushing connections for T1 -->
+  <circle cx="210" cy="225" r="4" fill="#FFB84D"/>
+  <line x1="210" y1="155" x2="210" y2="225" stroke="#FFB84D" stroke-width="2"/>
+
+  <circle cx="210" cy="315" r="4" fill="#FFB84D"/>
+  <line x1="210" y1="187" x2="210" y2="315" stroke="#FFB84D" stroke-width="2"/>
+
+  <!-- Transformer 2 (between L1 and L3) -->
+  <rect x="260" y="280" width="60" height="80" fill="#2C3E50" stroke="#27AE60" stroke-width="3" rx="5"/>
+  <text x="290" y="315" text-anchor="middle" fill="#27AE60" font-size="16" font-weight="bold">T2</text>
+  <text x="290" y="335" text-anchor="middle" fill="#F5F5F5" font-size="10">25 kVA</text>
+  <text x="290" y="350" text-anchor="middle" fill="#F5F5F5" font-size="9">7200V-240V</text>
+
+  <!-- Bushing connections for T2 -->
+  <circle cx="290" cy="275" r="4" fill="#FFB84D"/>
+  <line x1="290" y1="155" x2="290" y2="275" stroke="#FFB84D" stroke-width="2"/>
+
+  <circle cx="290" cy="365" r="4" fill="#FFB84D"/>
+  <line x1="290" y1="220" x2="290" y2="365" stroke="#FFB84D" stroke-width="2"/>
+
+  <!-- Missing transformer location (dashed outline) -->
+  <rect x="220" y="380" width="60" height="80" fill="none" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="6,3" rx="5"/>
+  <text x="250" y="415" text-anchor="middle" fill="#FF6B6B" font-size="14" font-weight="bold">MISSING</text>
+  <text x="250" y="435" text-anchor="middle" fill="#FF6B6B" font-size="10">Would connect</text>
+  <text x="250" y="450" text-anchor="middle" fill="#FF6B6B" font-size="10">L2 - L3</text>
+
+  <!-- Secondary wiring (240V 3-phase output) -->
+  <rect x="50" y="480" width="120" height="60" fill="#2C3E50" stroke="#FFB84D" stroke-width="2" rx="5"/>
+  <text x="110" y="505" text-anchor="middle" fill="#FFB84D" font-size="12" font-weight="bold">Secondary Bus</text>
+  <text x="110" y="522" text-anchor="middle" fill="#F5F5F5" font-size="10">240V 3-Phase</text>
+  <text x="110" y="535" text-anchor="middle" fill="#F5F5F5" font-size="9">Open-Delta</text>
+
+  <!-- Connection lines to secondary -->
+  <line x1="210" y1="310" x2="110" y2="480" stroke="#27AE60" stroke-width="2"/>
+  <line x1="290" y1="360" x2="110" y2="480" stroke="#27AE60" stroke-width="2"/>
+
+  <!-- Info box -->
+  <rect x="220" y="480" width="260" height="110" fill="#2C3E50" stroke="#27AE60" stroke-width="1" rx="5"/>
+
+  <text x="350" y="500" text-anchor="middle" fill="#27AE60" font-size="12" font-weight="bold">Open-Delta Bank</text>
+  <text x="350" y="518" text-anchor="middle" fill="#F5F5F5" font-size="9">• Two transformers instead of three</text>
+  <text x="350" y="533" text-anchor="middle" fill="#F5F5F5" font-size="9">• Delivers full 240V 3-phase power</text>
+  <text x="350" y="548" text-anchor="middle" fill="#F5F5F5" font-size="9">• Capacity: 86.6% of transformer sum</text>
+  <text x="350" y="563" text-anchor="middle" fill="#FFB84D" font-size="9">• Cost: 2 units vs 3 units</text>
+  <text x="350" y="578" text-anchor="middle" fill="#FF6B6B" font-size="9">• Asymmetric loading on transformers</text>
+</svg>
