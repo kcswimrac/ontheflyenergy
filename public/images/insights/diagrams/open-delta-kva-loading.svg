@@ -1,0 +1,61 @@
+<svg width="400" height="350" viewBox="0 0 400 350" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="400" height="350" fill="#0D0D0D"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" fill="#27AE60" font-size="14" font-weight="bold">Open-Delta kVA Loading</text>
+  
+  <!-- Open Delta V-Shape -->
+  <line x1="200" y1="80" x2="120" y2="200" stroke="#27AE60" stroke-width="3"/>
+  <line x1="200" y1="80" x2="280" y2="200" stroke="#27AE60" stroke-width="3"/>
+  
+  <!-- Missing leg (dashed) -->
+  <line x1="120" y1="200" x2="280" y2="200" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="8,4"/>
+  
+  <!-- Nodes -->
+  <circle cx="200" cy="80" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="200" y="85" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L1</text>
+  
+  <circle cx="120" cy="200" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="120" y="205" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L2</text>
+  
+  <circle cx="280" cy="200" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="280" y="205" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L3</text>
+  
+  <!-- Current arrows - Transformer 1 (heavier load) -->
+  <defs>
+    <marker id="arrowRed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FF6B6B"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#27AE60"/>
+    </marker>
+  </defs>
+  
+  <!-- Heavy current on T1 -->
+  <line x1="145" y1="125" x2="125" y2="165" stroke="#FF6B6B" stroke-width="4" marker-end="url(#arrowRed)"/>
+  <text x="110" y="145" text-anchor="end" fill="#FF6B6B" font-size="10" font-weight="bold">I₁ (HIGH)</text>
+  
+  <!-- Normal current on T2 -->
+  <line x1="255" y1="125" x2="275" y2="165" stroke="#27AE60" stroke-width="3" marker-end="url(#arrowGreen)"/>
+  <text x="310" y="145" text-anchor="start" fill="#27AE60" font-size="10" font-weight="bold">I₂</text>
+  
+  <!-- Synthesized current (dashed) -->
+  <line x1="140" y1="210" x2="260" y2="210" stroke="#FFB84D" stroke-width="2" stroke-dasharray="4,2" marker-end="url(#arrowGreen)"/>
+  <text x="200" y="230" text-anchor="middle" fill="#FFB84D" font-size="9">I₃ (synthesized)</text>
+  
+  <!-- Transformer boxes -->
+  <rect x="140" y="130" width="25" height="15" fill="#2C3E50" stroke="#FF6B6B" stroke-width="2"/>
+  <text x="152" y="140" text-anchor="middle" fill="#FF6B6B" font-size="8" font-weight="bold">T1</text>
+  
+  <rect x="235" y="130" width="25" height="15" fill="#2C3E50" stroke="#27AE60" stroke-width="2"/>
+  <text x="247" y="140" text-anchor="middle" fill="#27AE60" font-size="8" font-weight="bold">T2</text>
+  
+  <!-- Info box -->
+  <rect x="30" y="260" width="340" height="75" fill="#2C3E50" stroke="#27AE60" stroke-width="1" rx="5"/>
+  
+  <text x="200" y="280" text-anchor="middle" fill="#FF6B6B" font-size="11" font-weight="bold">Asymmetric Loading</text>
+  <text x="200" y="295" text-anchor="middle" fill="#F5F5F5" font-size="9">T1 carries disproportionate current</text>
+  <text x="200" y="308" text-anchor="middle" fill="#F5F5F5" font-size="9">One transformer hits kVA limit first</text>
+  <text x="200" y="321" text-anchor="middle" fill="#FFB84D" font-size="9">Usable capacity: 86.6% (balanced) or 57.7% (conversion)</text>
+</svg>

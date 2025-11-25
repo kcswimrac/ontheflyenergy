@@ -1,0 +1,63 @@
+<svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="600" height="300" fill="#0D0D0D"/>
+  
+  <!-- Title: Closed Delta -->
+  <text x="150" y="30" text-anchor="middle" fill="#27AE60" font-size="16" font-weight="bold">Closed Delta</text>
+  
+  <!-- Closed Delta Triangle -->
+  <line x1="150" y1="80" x2="70" y2="200" stroke="#27AE60" stroke-width="3"/>
+  <line x1="70" y1="200" x2="230" y2="200" stroke="#27AE60" stroke-width="3"/>
+  <line x1="230" y1="200" x2="150" y2="80" stroke="#27AE60" stroke-width="3"/>
+  
+  <!-- Closed Delta Nodes -->
+  <circle cx="150" cy="80" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="150" y="85" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L1</text>
+  
+  <circle cx="70" cy="200" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="70" y="205" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L2</text>
+  
+  <circle cx="230" cy="200" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="230" y="205" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L3</text>
+  
+  <!-- Transformer Labels Closed Delta -->
+  <text x="100" y="130" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">T1</text>
+  <text x="200" y="130" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">T2</text>
+  <text x="150" y="220" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">T3</text>
+  
+  <!-- All Three Transformers Present -->
+  <text x="150" y="250" text-anchor="middle" fill="#27AE60" font-size="10">All 3 transformers present</text>
+  <text x="150" y="265" text-anchor="middle" fill="#27AE60" font-size="10">Full balancing loop</text>
+  
+  <!-- Divider -->
+  <line x1="300" y1="40" x2="300" y2="280" stroke="#2C3E50" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Title: Open Delta -->
+  <text x="450" y="30" text-anchor="middle" fill="#FF6B6B" font-size="16" font-weight="bold">Open Delta (V)</text>
+  
+  <!-- Open Delta V-Shape -->
+  <line x1="450" y1="80" x2="370" y2="200" stroke="#27AE60" stroke-width="3"/>
+  <line x1="450" y1="80" x2="530" y2="200" stroke="#27AE60" stroke-width="3"/>
+  
+  <!-- Missing leg (dashed) -->
+  <line x1="370" y1="200" x2="530" y2="200" stroke="#FF6B6B" stroke-width="2" stroke-dasharray="8,4"/>
+  
+  <!-- Open Delta Nodes -->
+  <circle cx="450" cy="80" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="450" y="85" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L1</text>
+  
+  <circle cx="370" cy="200" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="370" y="205" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L2</text>
+  
+  <circle cx="530" cy="200" r="18" fill="#0D0D0D" stroke="#27AE60" stroke-width="2"/>
+  <text x="530" y="205" text-anchor="middle" fill="#F5F5F5" font-size="13" font-weight="bold">L3</text>
+  
+  <!-- Transformer Labels Open Delta -->
+  <text x="400" y="130" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">T1</text>
+  <text x="500" y="130" text-anchor="middle" fill="#F5F5F5" font-size="11" font-weight="bold">T2</text>
+  <text x="450" y="220" text-anchor="middle" fill="#FF6B6B" font-size="11" font-weight="bold">MISSING</text>
+  
+  <!-- Only Two Transformers -->
+  <text x="450" y="250" text-anchor="middle" fill="#FF6B6B" font-size="10">Only 2 transformers</text>
+  <text x="450" y="265" text-anchor="middle" fill="#FF6B6B" font-size="10">Third leg synthesized</text>
+</svg>
