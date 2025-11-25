@@ -5,6 +5,8 @@ summary: "Most storage companies treat the inverter as a commodity. We can't. Re
 tags: ["inverter", "power electronics", "controls"]
 thumbnail: "/images/insights/inverter.jpg"
 slug: "why-we-are-building-our-own-inverter"
+author: "Kris Canete"
+published: false
 ---
 
 Most storage startups outsource their inverters. It's faster, but it's a trap. If your power electronics are generic, your system becomes generic. Worse, you inherit every limitation of hardware built for solar, not volatility.

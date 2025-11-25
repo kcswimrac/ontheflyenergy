@@ -5,6 +5,8 @@ summary: "Modern AI workloads create load patterns that grid infrastructure was 
 tags: ["ai", "datacenter", "load"]
 thumbnail: "/images/insights/ai-spikes.jpg"
 slug: "five-ai-power-spikes"
+author: "Kris Canete"
+published: false
 ---
 
 AI data centers stress the grid in ways traditional compute never did. The instability comes from five core behaviors:
