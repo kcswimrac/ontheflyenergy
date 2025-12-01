@@ -1,0 +1,140 @@
+{
+  "hero": {
+    "headline1": "AI is breaking the grid.",
+    "headline2": "Lithium alone cannot keep up.",
+    "subtitle": "We are building the kinetic layer for an electrified world. Modular flywheel power buffers that complement batteries, protect the grid, and handle the 0–5 minute volatility AI and industrial loads create.",
+    "ctaButton1Text": "Join the Mission",
+    "ctaButton1Link": "/join",
+    "ctaButton2Text": "For Investors",
+    "ctaButton2Link": "/investors",
+    "stats": [
+      {
+        "value": "0-5 min",
+        "label": "Volatility Window"
+      },
+      {
+        "value": "20+ years",
+        "label": "Design Lifespan"
+      },
+      {
+        "value": "100k+ cycles",
+        "label": "No Degradation"
+      }
+    ]
+  },
+  "vision": {
+    "title": "When we succeed, the world looks like this",
+    "points": [
+      {
+        "icon": "Zap",
+        "title": "Grid that absorbs AI scale load volatility",
+        "description": "Power infrastructure that handles rapid changes in demand without strain"
+      },
+      {
+        "icon": "Server",
+        "title": "Data centers with kinetic buffers",
+        "description": "AI racks protected by flywheel systems that handle sub-5-minute power events"
+      },
+      {
+        "icon": "Layers",
+        "title": "Energy like cloud compute",
+        "description": "Fast, modular, dispatchable capacity that scales to meet demand"
+      }
+    ],
+    "closingStatement": "A future where energy infrastructure matches the speed and scale of the technologies it powers. Where kinetic storage complements batteries to create a resilient, responsive grid."
+  },
+  "whyFlywheels": {
+    "title": "Why Flywheels",
+    "subtitle": "Our wedge in the energy stack",
+    "points": [
+      {
+        "icon": "Battery",
+        "title": "Lithium is energy",
+        "description": "Batteries excel at storing large amounts of energy over hours and days"
+      },
+      {
+        "icon": "Zap",
+        "title": "Flywheels are power",
+        "description": "Kinetic storage delivers instant, high-power response for seconds to minutes"
+      },
+      {
+        "icon": "RefreshCw",
+        "title": "Both are needed",
+        "description": "Data centers and industrial sites need both energy capacity and power responsiveness"
+      },
+      {
+        "icon": "TrendingUp",
+        "title": "Our wedge: 0-5 minutes",
+        "description": "The volatility window where batteries degrade rapidly but flywheels thrive - unlimited cycles, no capacity loss"
+      }
+    ],
+    "callout": "On The Fly Energy targets the 0-5 minute volatility window that batteries alone are poorly suited for - where cycle life, C-rates, and degradation make lithium uneconomical. This is about system-level positioning, not replacing batteries, but complementing them."
+  },
+  "progress": {
+    "title": "Where We Are Now",
+    "subtitle": "Honest progress from serious adults doing hard things",
+    "milestones": [
+      {
+        "completed": false,
+        "title": "Foundations: Core Technology Integration",
+        "description": "First integrated kinetic storage module combining high-speed rotor with custom 5 kW grid-tie inverter. Rotor-Seed V1/V2 prototypes, inverter demonstration with sub-second response, hybrid operation with lithium, early telemetry through Factory-OS, federal innovation program submissions.",
+        "date": "Q4 2025"
+      },
+      {
+        "completed": false,
+        "title": "From Prototype to Pilot-Ready Systems",
+        "description": "Engineering discipline phase: Rotor-Seed V3 with improved bearings and containment validation, Inverter V2 with enhanced control loops, first hybrid kinetic-plus-lithium demo, failure mode modeling, defined architecture for Rotor-Pod (20-30 kW class).",
+        "date": "Q1–Q2 2026"
+      },
+      {
+        "completed": false,
+        "title": "Pilot Site Engineering + LOIs",
+        "description": "Lock final Rotor-Pod design, develop BOM and installation workflow, initiate UL 1741-SB and IEEE 1547 certification, sign pilot commitments with early-adopter customers in AI and industrial sectors, expand Factory-OS monitoring for fleet management.",
+        "date": "Q3 2026"
+      },
+      {
+        "completed": false,
+        "title": "Pilot Deployment #1",
+        "description": "Deploy first pilot system to live customer environment. Demonstrate ride-through, peak-shaving, and fast power-balancing. Characterize efficiency and dispatch speed. Validate integration with existing systems. Train ML models on rotor health. Publish performance summaries.",
+        "date": "Q4 2026"
+      },
+      {
+        "completed": false,
+        "title": "Scaling Toward Modular Energy Infrastructure",
+        "description": "50-250 kW Rotor-Pod variants, containerized Rotor-Plant systems, full API integration for data center orchestration and grid services, certification and manufacturability, high-volume composite rotor production, industrial and utility partnerships.",
+        "date": "2027+"
+      }
+    ],
+    "footer": "We are not overclaiming. This is early-stage hard tech, and we are methodically de-risking the path to a working, deployable product."
+  },
+  "talentCTA": {
+    "title": "Join the Mission",
+    "subtitle": "We are assembling a founding team to build the world's most responsive energy storage platform.",
+    "disciplines": [
+      {
+        "icon": "Zap",
+        "title": "Power Electronics & Inverter Design"
+      },
+      {
+        "icon": "Cpu",
+        "title": "Motor Control & Embedded Firmware"
+      },
+      {
+        "icon": "Cog",
+        "title": "Mechanical & Rotor Design"
+      },
+      {
+        "icon": "Factory",
+        "title": "Composite Manufacturing & Testing"
+      },
+      {
+        "icon": "Settings",
+        "title": "Controls, SCADA & Manufacturing Systems"
+      }
+    ],
+    "description": "These are the disciplines we need to solve the hardest problems in kinetic energy storage. If you want to build something that matters, we want to hear from you.",
+    "ctaButtonText": "Tell Us How You Want to Contribute",
+    "ctaButtonLink": "/join"
+  }
+}
+

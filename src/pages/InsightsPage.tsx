@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Clock, Tag as TagIcon, EyeOff } from 'lucide-react';
+import { Clock, Tag as TagIcon, EyeOff, Edit, Settings } from 'lucide-react';
 import { getAllPosts, getAllTags, Post } from '../utils/markdownParser';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -34,9 +34,31 @@ const InsightsPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative py-24 bg-gradient-to-b from-steel-blue to-midnight-black overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12">
-          <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-industrial-white mb-8 leading-tight">
-            Insights
-          </h1>
+          <div className="flex justify-between items-start mb-8">
+            <div>
+              <h1 className="font-montserrat font-bold text-5xl md:text-6xl text-industrial-white leading-tight">
+                Insights
+              </h1>
+            </div>
+            {isAuthenticated && (
+              <div className="flex gap-3">
+                <Link
+                  to="/admin/editor"
+                  className="flex items-center gap-2 bg-energy-green/20 hover:bg-energy-green/30 border border-energy-green text-energy-green font-montserrat font-semibold px-4 py-2 rounded-lg transition-all"
+                >
+                  <Edit className="h-4 w-4" />
+                  Edit Posts
+                </Link>
+                <Link
+                  to="/admin/content"
+                  className="flex items-center gap-2 bg-energy-green/20 hover:bg-energy-green/30 border border-energy-green text-energy-green font-montserrat font-semibold px-4 py-2 rounded-lg transition-all"
+                >
+                  <Settings className="h-4 w-4" />
+                  Site Content
+                </Link>
+              </div>
+            )}
+          </div>
           <p className="font-open-sans text-xl md:text-2xl text-gray-100 max-w-4xl leading-relaxed">
             Technical deep dives on grid physics, power systems, and the energy storage architecture
             that AI and electrification demand. Written for engineers and investors who want to

@@ -1,0 +1,63 @@
+{
+  "hero": {
+    "title": "We hire people who build first and talk second.",
+    "subtitle": "Proof of work. Not resumes."
+  },
+  "hiringNote": {
+    "text": "We are not actively hiring for any specific open roles at this time. However, we always have an opening for top talent. If you are exceptional at what you do and believe you can contribute to building the kinetic layer for the grid, we want to hear from you."
+  },
+  "philosophy": {
+    "title": "How We Screen",
+    "paragraphs": [
+      "We screen candidates on evidence of real work: code repositories, CAD models, hardware prototypes, simulations, project writeups, build logs, test data. Resumes are collected later in the interview process for administrative purposes only.",
+      "We expect people to move quickly, think clearly, and build real things. AI and automation are welcome. Efficiency and execution matter more than tradition. If you used Claude or GPT to accelerate your work, good. What matters is the output and whether it works.",
+      "Submit your portfolio or project link. That is how we screen. If you cannot point to something you built, we have nothing to discuss."
+    ]
+  },
+  "proofOfWork": {
+    "title": "What Proof of Work Looks Like",
+    "categories": [
+      {
+        "icon": "Code",
+        "title": "Digital Artifacts",
+        "description": "GitHub repos, CAD assemblies, simulations (FEA, CFD, SPICE), PCB layouts, control algorithms, firmware."
+      },
+      {
+        "icon": "Wrench",
+        "title": "Physical Builds",
+        "description": "Mechanical prototypes, test rigs, fabricated parts, power electronics hardware, manufacturing fixtures, experimental setups."
+      },
+      {
+        "icon": "Zap",
+        "title": "Technical Documentation",
+        "description": "Portfolio sites, build logs, technical writeups, experiment documentation, video walkthroughs, analysis reports."
+      }
+    ]
+  },
+  "culture": {
+    "title": "The On The Fly Way",
+    "icon": "Users",
+    "paragraphs": [
+      "We think in systems and design things to last. We operate like a modern engineering company where AI and new tools are welcome. We care about clarity, craftsmanship, autonomy, and long-term impact.",
+      "We build what matters, leave things better than we found them, and share what we learn."
+    ],
+    "footer": "The full culture playbook is shared during the hiring process."
+  },
+  "equity": {
+    "title": "Partner Buy-In Equity Program",
+    "icon": "Target",
+    "paragraphs": [
+      "Full-time employees are required to invest directly into the company and become real owners. This is not a standard stock option plan. It is a partner-level program for people committed to building the company.",
+      "The intent is simple: we build owners, not spectators."
+    ],
+    "footer": "Eligibility and structure are explained during the hiring process."
+  },
+  "disciplines": {
+    "title": "Disciplines We Need",
+    "subtitle": "We hire when we find exceptional people, not when we have headcount budget. Click each card to learn more."
+  },
+  "application": {
+    "title": "Apply",
+    "subtitle": "Initial screening is based entirely on the portfolio or project link you provide below. Without proof of work, your application will not be considered."
+  }
+}
