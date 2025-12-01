@@ -1,0 +1,87 @@
+{
+  "hero": {
+    "title": "For Investors",
+    "subtitle": "Building the kinetic layer for grid-scale AI and industrial power systems"
+  },
+  "problem": {
+    "title": "The Problem",
+    "icon": "TrendingUp",
+    "paragraphs": [
+      "AI and electrification are creating unprecedented volatility in power demand. Data centers experience millisecond-to-minute load swings. Industrial facilities need fast frequency regulation and peak shaving.",
+      "Lithium batteries are optimized for energy - hours and days of storage. But they degrade rapidly under high cycle counts and high C-rates. The 0-5 minute power volatility window is where batteries are least economical.",
+      "The grid needs a kinetic layer. Fast, responsive, durable power storage that complements batteries, not replaces them."
+    ]
+  },
+  "wedge": {
+    "title": "Our Wedge",
+    "icon": "Target",
+    "intro": "On The Fly Energy builds modular flywheel systems designed for the short-duration, high-power window. Our units:",
+    "bulletPoints": [
+      "Deliver instant power response (milliseconds)",
+      "Handle 100,000+ cycles with zero capacity degradation",
+      "Integrate at the grid edge - data centers, industrial sites, microgrids",
+      "Protect batteries by absorbing high-frequency volatility",
+      "Improve economics of AI and industrial loads by reducing demand charges and stabilizing grid connections"
+    ],
+    "closing": "We are not competing with lithium. We are complementing it - solving the power problem so batteries can focus on energy."
+  },
+  "traction": {
+    "title": "Current Stage & Traction",
+    "icon": "CheckCircle2",
+    "items": [
+      {
+        "title": "Technical De-risking",
+        "description": "Rotor-Seed 10kW prototype design complete. Containment and burst analysis validated via FEA. Inverter and power electronics architecture defined."
+      },
+      {
+        "title": "Early Conversations",
+        "description": "Active discussions with data center operators and industrial partners for pilot deployments. Building relationships with composite manufacturers and precision machining vendors."
+      },
+      {
+        "title": "Team & Capabilities",
+        "description": "Founding team with track record in automation, manufacturing, casting, EVs, and energy systems. Direct experience building hardware under constraints."
+      }
+    ]
+  },
+  "roadmap": {
+    "title": "Roadmap to Deployment",
+    "icon": "Map",
+    "milestones": [
+      {
+        "quarter": "Q4 2025",
+        "phase": "Foundations",
+        "description": "First integrated kinetic storage module with 5 kW grid-tie inverter. Rotor-Seed V1/V2 prototypes, sub-second response demonstration, hybrid lithium operation, Factory-OS telemetry, federal program submissions."
+      },
+      {
+        "quarter": "Q1–Q2 2026",
+        "phase": "Pilot-Ready Systems",
+        "description": "Rotor-Seed V3 with improved bearings and containment, Inverter V2 with enhanced controls, hybrid demo unit, failure mode modeling, defined Rotor-Pod architecture (20-30 kW)."
+      },
+      {
+        "quarter": "Q3 2026",
+        "phase": "Pilot Engineering",
+        "description": "Lock final Rotor-Pod design, develop installation workflow, initiate UL/IEEE certification, sign pilot LOIs with AI and industrial customers, expand Factory-OS for fleet management."
+      },
+      {
+        "quarter": "Q4 2026",
+        "phase": "First Deployment",
+        "description": "Live pilot system at customer site. Demonstrate ride-through, peak-shaving, fast balancing. Characterize performance and validate integration. Publish results."
+      },
+      {
+        "quarter": "2027+",
+        "phase": "Scaling",
+        "description": "50-250 kW variants, containerized systems, API integration for data centers, certification completion, high-volume composite production, industrial and utility partnerships."
+      }
+    ],
+    "footer": "Target verticals: AI data centers, industrial microgrids, grid-edge applications"
+  },
+  "capital": {
+    "title": "Where Capital Moves the Needle",
+    "icon": "DollarSign",
+    "description": "We are raising to accelerate prototype iteration, build test infrastructure, and move faster toward pilot deployments. Capital will fund: precision machining and composite tooling, power electronics development and testing, certification and compliance pathways, and early pilot site deployments that generate real-world validation data."
+  },
+  "contact": {
+    "title": "Let's Talk",
+    "subtitle": "Interested in learning more? Fill out the form below."
+  }
+}

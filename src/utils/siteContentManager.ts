@@ -20,6 +20,18 @@ export const SITE_CONTENT_SECTIONS: SiteContentSection[] = [
     label: 'About Page',
     file: '/content/site/about.json',
     description: 'Mission, values, founder bio, and American manufacturing section'
+  },
+  {
+    id: 'investors',
+    label: 'Investors Page',
+    file: '/content/site/investors.json',
+    description: 'Problem, wedge, traction, roadmap, and capital sections for investors'
+  },
+  {
+    id: 'join',
+    label: 'Join/Careers Page',
+    file: '/content/site/join.json',
+    description: 'Hiring philosophy, proof of work, culture, equity program, and disciplines'
   }
 ];
 
