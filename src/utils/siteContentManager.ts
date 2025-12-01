@@ -13,7 +13,7 @@ export const SITE_CONTENT_SECTIONS: SiteContentSection[] = [
     id: 'home',
     label: 'Home Page',
     file: '/content/site/home.json',
-    description: 'Hero section, vision, and statistics on the home page'
+    description: 'Hero, vision, why flywheels, progress timeline, and talent CTA sections'
   },
   {
     id: 'about',
