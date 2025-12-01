@@ -1,0 +1,46 @@
+{
+  "hero": {
+    "headline1": "AI is breaking the grid.",
+    "headline2": "Lithium alone cannot keep up.",
+    "subtitle": "We are building the kinetic layer for an electrified world. Modular flywheel power buffers that complement batteries, protect the grid, and handle the 0–5 minute volatility AI and industrial loads create.",
+    "ctaButton1Text": "Join the Mission",
+    "ctaButton1Link": "/join",
+    "ctaButton2Text": "For Investors",
+    "ctaButton2Link": "/investors",
+    "stats": [
+      {
+        "value": "0-5 min",
+        "label": "Volatility Window"
+      },
+      {
+        "value": "20+ years",
+        "label": "Design Lifespan"
+      },
+      {
+        "value": "100k+ cycles",
+        "label": "No Degradation"
+      }
+    ]
+  },
+  "vision": {
+    "title": "When we succeed, the world looks like this",
+    "points": [
+      {
+        "icon": "Zap",
+        "title": "Grid that absorbs AI scale load volatility",
+        "description": "Power infrastructure that handles rapid changes in demand without strain"
+      },
+      {
+        "icon": "Server",
+        "title": "Data centers with kinetic buffers",
+        "description": "AI racks protected by flywheel systems that handle sub-5-minute power events"
+      },
+      {
+        "icon": "Layers",
+        "title": "Energy like cloud compute",
+        "description": "Fast, modular, dispatchable capacity that scales to meet demand"
+      }
+    ],
+    "closingStatement": "A future where energy infrastructure matches the speed and scale of the technologies it powers. Where kinetic storage complements batteries to create a resilient, responsive grid."
+  }
+}

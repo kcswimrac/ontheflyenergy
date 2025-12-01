@@ -9,6 +9,7 @@ import InsightsPage from './pages/InsightsPage';
 import InsightPostPage from './pages/InsightPostPage';
 import AdminLoginPage from './pages/AdminLoginPage';
 import AdminEditorPage from './pages/AdminEditorPage';
+import ContentManagerPage from './pages/ContentManagerPage';
 import { AuthProvider } from './contexts/AuthContext';
 import { usePageTracking } from './hooks/usePageTracking';
 
@@ -21,6 +22,7 @@ function AppContent() {
       {/* Admin routes without navbar */}
       <Route path="/admin/login" element={<AdminLoginPage />} />
       <Route path="/admin/editor" element={<AdminEditorPage />} />
+      <Route path="/admin/content" element={<ContentManagerPage />} />
 
       {/* Main site routes with navbar */}
       <Route path="/*" element={

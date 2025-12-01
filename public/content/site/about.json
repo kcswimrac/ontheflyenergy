@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "title": "About Us",
+    "subtitle": "We are building the kinetic layer for an electrified world"
+  },
+  "whyWeExist": {
+    "title": "Why We Exist",
+    "paragraphs": [
+      "The grid is breaking under the weight of AI and electrification. Data centers are consuming unprecedented amounts of power, with load profiles that swing wildly in milliseconds. Industrial facilities need resilience and responsiveness that legacy infrastructure cannot deliver.",
+      "Lithium batteries are critical - but they are not the complete answer. They excel at energy storage over hours and days, but struggle with high cycle counts and rapid power fluctuations. The 0-5 minute volatility window - where flywheels thrive - is where batteries degrade fastest and economics break down.",
+      "We saw this gap firsthand. Through years building automation systems, manufacturing equipment, and working in energy and EV sectors, we experienced the constraints of existing solutions. The grid needs a kinetic layer - fast, durable, modular power storage that complements batteries and absorbs the chaos.",
+      "On The Fly Energy exists to build that layer. We are not chasing hype. We are solving a real, systemic problem with technology that works."
+    ]
+  },
+  "whatWeBring": {
+    "title": "What We Bring",
+    "values": [
+      {
+        "icon": "Wrench",
+        "title": "Built Real Hardware",
+        "description": "Automation systems, manufacturing equipment, and energy infrastructure under real-world constraints"
+      },
+      {
+        "icon": "Factory",
+        "title": "Manufacturing DNA",
+        "description": "From casting to precision machining to production systems - we understand how things get made"
+      },
+      {
+        "icon": "Zap",
+        "title": "Energy Systems Experience",
+        "description": "Direct work in EVs, industrial power, and grid-edge applications - we know the problem space"
+      },
+      {
+        "icon": "Target",
+        "title": "Solving Real Problems",
+        "description": "Not building technology for its own sake - focused on what the grid and industry actually need"
+      }
+    ]
+  },
+  "founder": {
+    "title": "Founder",
+    "name": "Kris Canete",
+    "role": "Founder, On The Fly Energy",
+    "bio": [
+      "Kris built his career in places where hardware only gets one shot to work. He started in law enforcement, where operating under pressure shaped his bias for systems that are practical, resilient, and built for failure modes instead of ideal conditions. That mindset carried into engineering, where he moved through automation, EV manufacturing, casting, robotics, and industrial energy systems.",
+      "He has designed and deployed six-axis automation cells, built processes for castings, led investigations into high-stakes hardware failures, and run machine shops when prototypes needed to be made immediately. His work at Tesla, Sila, and Rangeview, reflects a consistent pattern: take an idea, build it fast, break it, fix what matters, and deliver a version that survives the real world.",
+      "On The Fly Energy is a continuation of that pattern. After years inside factories and grid-adjacent operations, Kris saw the gap that lithium can't close alone. Energy storage handles capacity, but not volatility. The grid needs a modular kinetic buffer. So he started building it.",
+      "Today he's assembling a team to create that missing layer of grid physics. The people who join him care about rigor, iteration, and solving the parts of the energy problem that most companies avoid. For investors, the appeal is simple: Kris has spent his entire career pushing hard tech from zero to one under real constraints, and knows how to turn a garage prototype into a scalable system."
+    ]
+  },
+  "americanManufacturing": {
+    "title": "Built in America",
+    "description": "We are committed to American manufacturing. Flywheel systems for critical infrastructure should be built domestically, with supply chains we control and quality we can guarantee. This is not just a talking point - it is a strategic and operational imperative."
+  }
+}
